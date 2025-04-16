@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="lt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ĮTRAUKIOJO UGDYMO SISTEMA</title>
+    <style>
+      html {
+        font-size: 16px;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        overflow: auto;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        padding: 0;
+        background-color: #f9fbfd;
+      }
+
+      .container {
+        padding: 2.5rem;
+      }
+
+      .footer {
+        background-color: #fff;
+        border-top: 1px solid #ddd;
+        padding: 0.5rem 1rem;
+        margin-top: 0;
+        text-align: center;
+        color: #777;
+        font-size: 0.9rem;
+      }
+      .footer .footer-content {
+        max-width: 900px;
+        margin: 0 auto;
+        line-height: 1.6;
+      }
+      .footer .footer-content a {
+        color: #3c4aad;
+        text-decoration: underline;
+      }
+      .footer .footer-content a:hover {
+        color: #2a3282;
+      }
+
+      .app-header {
+        text-align: center;
+        margin: 0 auto 3rem;
+        padding: 0 1rem;
+        max-width: 900px;
+      }
+      .app-header h1 {
+        font-size: 1.8rem;
+        color: #2c3e50;
+        margin-bottom: 1rem;
+        font-weight: 700;
+        margin-top: 0;
+        max-width: 50rem;
+        margin: auto;
+        padding-bottom: 2rem;
+      }
+      .app-header .quote {
+        font-style: italic;
+        color: #444;
+        font-size: 1.2rem;
+        max-width: 700px;
+        margin: 0 auto;
+        line-height: 1.7;
+      }
+
+      .main-nav {
+        background-color: #fff;
+        border-bottom: 1px solid #ddd;
+        padding: 1.5rem 2rem;
+        margin-bottom: 0;
+      }
+      .main-nav .nav-container {
+        max-width: 52rem;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      .main-nav .nav-title {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: #3c4aad;
+        margin-bottom: 0.5rem;
+      }
+      @media (min-width: 600px) {
+        .main-nav .nav-title {
+          margin-bottom: 0;
+        }
+      }
+      .main-nav .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+        padding: 0;
+        margin: 0;
+        font-size: 0.9rem;
+      }
+      .main-nav .nav-links li a {
+        text-decoration: none;
+        color: #3c4aad;
+        font-weight: bold;
+        transition: color 0.2s ease;
+      }
+      .main-nav .nav-links li a:hover {
+        color: #2a2a8a;
+      }
+
+      #modal-text {
+        text-align: start;
+      }
+      #modal-text h3 {
+        margin-top: 1.5rem;
+        font-size: 1.2rem;
+        color: #333;
+      }
+      #modal-text ul {
+        padding-left: 1.2rem;
+        margin: 0.5rem 0;
+      }
+      #modal-text li {
+        margin-bottom: 0.4rem;
+      }
+      #modal-text a {
+        color: #3c4aad;
+        text-decoration: underline;
+      }
+
+      .diagram-hint {
+        text-align: left;
+        color: #666;
+        font-size: 1.1rem;
+        max-width: 52rem;
+        margin: auto;
+      }
+
+      .level-2 .box {
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .level-2 .box:hover {
+        transform: scale(1.03);
+        box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.15);
+        background-color: rgba(76, 139, 44, 0.0862745098);
+      }
+
+      .modal-trigger {
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .modal-trigger:hover {
+        transform: scale(1.03);
+        box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.15);
+        background-color: rgba(33, 149, 243, 0.1137254902);
+      }
+
+      .modal {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+      }
+      .modal.hidden {
+        display: none;
+      }
+      .modal .modal-backdrop {
+        position: absolute;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+      .modal .modal-content {
+        position: relative;
+        background-color: white;
+        border-radius: 0.5rem;
+        max-width: 500px;
+        width: 90%;
+        height: auto;
+        max-height: 80vh;
+        overflow-y: auto;
+        z-index: 1;
+        text-align: center;
+        padding: 2rem;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      }
+      .modal .modal-content .modal-close {
+        position: absolute;
+        top: 0.5rem;
+        right: 1rem;
+        cursor: pointer;
+        font-size: 2rem;
+        font-weight: bold;
+        color: #666;
+        transition: color 0.2s ease;
+      }
+      .modal .modal-content .modal-close:hover {
+        color: #333;
+      }
+
+      .level-3 {
+        border: 0.3rem dotted #ab3b15;
+        border-radius: 1.5625rem;
+        padding: 2.5rem 1.25rem;
+        max-width: 52rem;
+        margin: auto;
+        position: relative;
+        text-align: center;
+      }
+      .level-3 .level-indicator {
+        position: absolute;
+        top: -1.25rem;
+        left: 1.25rem;
+        background-color: white;
+        border: 0.0625rem solid #ab3b15;
+        font-size: 1.125rem;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        border-width: 0.125rem;
+        font-weight: bold;
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+      }
+      .level-3 .main-box {
+        border: 0.3125rem solid #ab3b15;
+        border-radius: 0.75rem;
+        padding: 1.25rem;
+        display: inline-block;
+        font-weight: bold;
+        margin-bottom: 3.125rem;
+      }
+      .level-3 .flex-container {
+        display: flex;
+        justify-content: center;
+        gap: 3.75rem;
+        margin-top: 1.25rem;
+        align-items: flex-start;
+      }
+      .level-3 .flex-container .box {
+        border: 0.3125rem solid #f48f1e;
+        border-radius: 0.75rem;
+        padding: 1.25rem;
+        width: 15.625rem;
+      }
+
+      @media (max-width: 600px) {
+        .container {
+          padding: 1.25rem 0;
+        }
+        .level-3 {
+          padding: 1.25rem 0.625rem 5rem;
+        }
+        .level-3 .main-box {
+          margin-bottom: 1.875rem;
+        }
+        .level-3 .flex-container {
+          gap: 0.5rem;
+        }
+        .level-3 .flex-container .box {
+          padding: 1rem;
+        }
+      }
+      .level-2 {
+        border: 0.3rem dotted #4b8b2c;
+        border-radius: 1.5625rem;
+        padding: 2.5rem 1.25rem;
+        max-width: 52rem;
+        margin: 3rem auto 1rem;
+        position: relative;
+        text-align: center;
+      }
+      .level-2 .level-indicator {
+        position: absolute;
+        top: -1.25rem;
+        right: 1.25rem;
+        background-color: white;
+        border: 0.0625rem solid #4b8b2c;
+        font-weight: bold;
+        font-size: 1.125rem;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        border-width: 0.125rem;
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+      }
+      .level-2 .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+      .level-2 .grid-container .box {
+        border: 0.3125rem solid #4caf50;
+        border-radius: 0.75rem;
+        padding: 1.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 1.25rem;
+        min-height: 6rem;
+      }
+
+      @media (max-width: 600px) {
+        .level-2 {
+          padding: 1.25rem 0.625rem;
+        }
+        .level-2 .grid-container {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+        .level-2 .grid-container .box {
+          padding: 1rem;
+        }
+      }
+      .level-1 {
+        border: 0.3rem dotted #3c4aad;
+        border-radius: 1.5625rem;
+        padding: 2.5rem 1.25rem;
+        max-width: 52rem;
+        margin: 3rem auto;
+        position: relative;
+        text-align: center;
+        margin-bottom: 0;
+      }
+      .level-1 .level-indicator {
+        position: absolute;
+        top: -1.25rem;
+        left: 1.25rem;
+        background-color: white;
+        border: 0.0625rem solid #3c4aad;
+        font-size: 1.125rem;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        border-width: 0.125rem;
+        font-weight: bold;
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+      }
+      .level-1 .main-box {
+        border: 0.25rem solid #3c4aad;
+        border-radius: 0.75rem;
+        padding: 1.25rem;
+        font-weight: bold;
+        margin: 0 auto 2rem;
+        display: inline-block;
+      }
+      .level-1 .section-box {
+        border: 0.25rem dotted #2196f3;
+        border-radius: 0.75rem;
+        padding: 1rem;
+      }
+      .level-1 .section-box .vaiku-geroves-box {
+        border: 0.25rem solid #2196f3;
+        border-radius: 0.75rem;
+        padding: 0.75rem;
+        max-width: 25rem;
+        margin: 0 auto 1rem;
+      }
+      .level-1 .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+        gap: 1.25rem;
+        justify-content: center;
+      }
+      .level-1 .grid-container .box {
+        border: 0.25rem solid #2196f3;
+        border-radius: 0.75rem;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .level-1 .grid-container .box-green {
+        border-color: #43a047;
+      }
+      .level-1 .grid-container .box-school {
+        border-color: #3c4aad;
+      }
+      .level-1 .grid-container-2 {
+        position: relative;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        justify-content: center;
+        margin: 3.8rem 0;
+      }
+      .level-1 .grid-container-2 .box {
+        border: 0.25rem solid #2196f3;
+        border-radius: 0.75rem;
+        padding: 1rem;
+      }
+      .level-1 .grid-container-2 .box-purple {
+        padding: 1.5rem;
+        height: 1.2rem;
+        border-color: #7e57c2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .level-1 .grid-container-2 .first {
+        justify-self: start;
+        width: 10rem;
+      }
+      .level-1 .grid-container-2 .second {
+        width: 10rem;
+        left: 50%;
+        transform: translate(-50%, 0);
+        position: absolute;
+      }
+      .level-1 .grid-container-3 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 3.5rem;
+        flex-wrap: wrap;
+      }
+      .level-1 .grid-container-3 .box {
+        height: 2.5rem;
+        border: 0.25rem solid #2196f3;
+        border-radius: 0.75rem;
+        padding: 1rem 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 8rem;
+        width: 100%;
+        text-align: center;
+      }
+      .level-1 .grid-container-3 .box-green {
+        border-color: #43a047;
+      }
+      .level-1 .grid-container-3 .box-school {
+        border-color: #3c4aad;
+      }
+
+      @media (max-width: 806px) {
+        .level-1 .grid-container-2 .first {
+          width: 5rem;
+        }
+        .level-1 .grid-container-2 .second {
+          width: 5rem;
+        }
+        .level-1 .grid-container-3 .box {
+          padding: 1rem;
+        }
+      }
+      @media (max-width: 487px) {
+        .level-1 .grid-container-2 {
+          display: flex;
+          justify-content: space-between;
+        }
+        .level-1 .grid-container-2 .first {
+          width: 5rem;
+        }
+        .level-1 .grid-container-2 .second {
+          width: 5rem;
+          position: relative;
+          left: 0;
+          transform: translate(10px, 0);
+        }
+        .level-1 .grid-container-2 .box {
+          padding: 1.5rem 1rem;
+        }
+        .level-1 .grid-container-3 .box {
+          padding: 0.5rem 0.2rem;
+        }
+      } /*# sourceMappingURL=3level.css.map */
+    </style>
+  </head>
+
+  <body>
+    <div id="modal" class="modal hidden">
+      <div class="modal-backdrop"></div>
+      <div class="modal-content">
+        <span id="modal-close" class="modal-close">&times;</span>
+        <div id="modal-text"></div>
+      </div>
+    </div>
+
+    <nav class="main-nav">
+      <div class="nav-container">
+        <div class="nav-title">Įtraukiojo ugdymo sistema</div>
+        <ul class="nav-links">
+          <li>
+            <a href="https://v.girzado-progimnazija.lt/"
+              >Atgal į V. Giržado progimnazijos puslapį</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <header class="app-header">
+        <h1>KAIŠIADORIŲ RAJONO SAVIVALDYBĖS ĮTRAUKIOJO UGDYMO SISTEMA</h1>
+        <p class="quote">
+          <em
+            >„Įtraukusis ugdymas yra kaip sodas, kuriame kiekviena gėlė turi
+            savą vietą žydėti, nepriklausomai nuo spalvos, dydžio ar formos. Tik
+            tada, kai kiekvienas augalas gauna šviesos ir rūpesčio, sodas tampa
+            pilnas gyvybės ir grožio.“</em
+          >
+        </p>
+      </header>
+      <div class="level-3">
+        <div class="level-indicator">III LYGMUO</div>
+        <div id="level-3-main-box" class="main-box">
+          KAIŠIADORIŲ RAJONO<br />SAVIVALDYBĖ
+        </div>
+        <div class="flex-container">
+          <div id="level-3-box-1" class="box">
+            <strong>FINANSAVIMAS</strong><br />
+            <small>(aplinkos, pagalbos specialistai, mobilioji komanda)</small>
+          </div>
+          <div id="level-3-box-2" class="box">
+            <strong>PAGALBA</strong><br />
+            <small>(konsultavimas, priežiūra, rekomendacijos)</small>
+          </div>
+        </div>
+      </div>
+      <div class="level-2">
+        <div class="level-indicator">II LYGMUO</div>
+        <div class="grid-container">
+          <div class="box" data-id="biuras">
+            Kaišiadorių rajono savivaldybės visuomenės sveikatos biuras*
+          </div>
+          <div class="box" data-id="savivaldybe">
+            Kaišiadorių rajono savivaldybės administracijos Švietimo, kultūros
+            ir sporto skyriaus tarpinstitucinio bendradarbiavimo koordinatorius*
+          </div>
+          <div class="box" data-id="socialiniai">
+            Kaišiadorių socialinių paslaugų centras*
+          </div>
+          <div class="box" data-id="faustina">
+            Kaišiadorių šventosios Faustinų ugdymo centras*
+          </div>
+          <div class="box" data-id="ppt">
+            Kaišiadorių pedagoginė psichologinė tarnyba*
+          </div>
+          <div class="box" data-id="girzado">
+            Kaišiadorių Vaclovo Giržado progimnazija*
+          </div>
+          <div class="box" data-id="neformalus">
+            Kaišiadorių švietimo ir sporto centro Neformaliojo švietimo skyrius*
+          </div>
+        </div>
+      </div>
+      <p class="diagram-hint">
+        *Galite paspausti ant elementų pažymėtų žvaigždute tam, kad
+        atidarytumėte daugiau informacijos.
+      </p>
+      <div class="level-1">
+        <div class="level-indicator">I LYGMUO</div>
+
+        <div id="level-1-director" class="main-box">MOKYKLOS DIREKTORIUS</div>
+
+        <div id="level-1-section-box" class="section-box">
+          <div class="vaiku-geroves-box modal-trigger" data-modal="vgk">
+            <strong>VAIKO GEROVĖS KOMISIJA*</strong>
+          </div>
+          <div class="grid-container">
+            <div
+              id="level-1-member-1"
+              class="box modal-trigger"
+              data-modal="psichologas"
+            >
+              Psichologas*
+            </div>
+            <div
+              id="level-1-member-2"
+              class="box modal-trigger"
+              data-modal="specPedagogas"
+            >
+              Specialusis pedagogas*
+            </div>
+            <div
+              id="level-1-member-3"
+              class="box modal-trigger"
+              data-modal="specPedagogas"
+            >
+              Logopedas*
+            </div>
+            <div
+              id="level-1-member-4"
+              class="box modal-trigger"
+              data-modal="socPedagogas"
+            >
+              Socialinis pedagogas*
+            </div>
+            <div
+              id="level-1-member-5"
+              class="box modal-trigger"
+              data-modal="padejejas"
+            >
+              Mokinio padėjėjas*
+            </div>
+            <div id="level-1-member-6" class="box box-green">
+              Visuomenės sveikatos specialistas
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-container-2">
+          <div id="level-1-parent" class="box box-purple first">
+            Mokinio tėvai
+          </div>
+          <div id="level-1-child" class="box box-purple second">
+            Mokinys, patiriantis sunkumų
+          </div>
+        </div>
+
+        <div class="grid-container-3">
+          <div id="level-1-teacher" class="box box-school">Mokytojai</div>
+          <div id="level-1-class" class="box box-school">Klasės vadovas</div>
+          <div id="level-1-responsible" class="box box-school">
+            Atsakingas asmuo
+          </div>
+        </div>
+      </div>
+      <p class="diagram-hint" style="padding-top: 1rem">
+        *Galite paspausti ant elementų pažymėtų žvaigždute tam, kad
+        atidarytumėte daugiau informacijos.
+      </p>
+    </div>
+    <footer class="footer">
+      <div class="footer-content">
+        <p>
+          &copy; 2025 Kaišiadorių Vaclovo Giržado progimnazija. Visos teisės
+          saugomos.
+        </p>
+        <p>
+          Kontaktai:
+          <a href="mailto:akvile.grigiene28@gmail.com"
+            >akvile.grigiene28@gmail.com</a
+          >
+        </p>
+      </div>
+    </footer>
+    <!-- Levels -->
+  </body>
+
+  <script src="https://cdn.jsdelivr.net/npm/leader-line"></script>
+  <script>
+    const modalContents = {
+      ppt: `
+    <h3 style="margin-top: 1.5rem; font-size: 1.2rem; color: #333; margin-bottom: 2rem; text-align: center;">
+      KAIŠIADORIŲ PEDAGOGINĖ PSICHOLOGINĖ TARNYBA
+    </h3>
+    <p>El. paštas: 
+      <a href="mailto:ppt@ppt.kaisiadorys.lm.lt" style="color:#3c4aad; text-decoration: underline;">
+        ppt@ppt.kaisiadorys.lm.lt
+      </a>
+    </p>
+
+    <h3 style="margin-top: 1.5rem; font-size: 1.2rem; color: #333;">Tikslinė grupė</h3>
+    <ul style="padding-left: 1.2rem; margin: 0.5rem 0;">
+      <li style="margin-bottom: 0.4rem;">Vaikai / mokiniai, tėvai (globėjai, rūpintojai)</li>
+      <li style="margin-bottom: 0.4rem;">Pedagogai</li>
+      <li style="margin-bottom: 0.4rem;">Švietimo pagalbos specialistai</li>
+    </ul>
+
+    <h3 style="margin-top: 1.5rem; font-size: 1.2rem; color: #333;">Pagrindinės funkcijos</h3>
+    <ul style="padding-left: 1.2rem; margin: 0.5rem 0;">
+      <li style="margin-bottom: 0.4rem;"><strong>Įvertina specialiuosius ugdymosi poreikius</strong> ir nustato jų lygį.</li>
+      <li style="margin-bottom: 0.4rem;">Teikia:
+        <ul style="padding-left: 1.2rem; margin: 0.4rem 0;">
+          <li style="margin-bottom: 0.4rem;">rekomendacijas ugdymui;</li>
+          <li style="margin-bottom: 0.4rem;">psichologinę pagalbą mokytojams ir kitiems švietimo įstaigos darbuotojams, smurtavusiems ar smurtą patyrusiems švietimo įstaigoje.</li>
+        </ul>
+      </li>
+      <li style="margin-bottom: 0.4rem;">Skiria švietimo pagalbą ir (arba) ugdymo pritaikymą.</li>
+    </ul>
+
+    <h3 style="margin-top: 1.5rem; font-size: 1.2rem; color: #333;">Papildomos funkcijos</h3>
+    <ul style="padding-left: 1.2rem; margin: 0.5rem 0;">
+      <li style="margin-bottom: 0.4rem;">Konsultuoja:
+        <ul style="padding-left: 1.2rem; margin: 0.4rem 0;">
+          <li style="margin-bottom: 0.4rem;">mokyklų Vaiko gerovės komisijų pirmininkus dėl švietimo pagalbos skyrimo mokykloje;</li>
+          <li style="margin-bottom: 0.4rem;">pedagogus dėl teikiamos švietimo pagalbos efektyvumo užtikrinimo;</li>
+          <li style="margin-bottom: 0.4rem;">psichologinių, asmenybės ir ugdymosi problemų turinčius asmenis.</li>
+        </ul>
+      </li>
+      <li style="margin-bottom: 0.4rem;">Pataria mokyklų Vaiko gerovės komisijų nariams dėl švietimo pagalbos teikimo galimybių, kai mokykloje nėra reikiamų švietimo pagalbos specialistų.</li>
+      <li style="margin-bottom: 0.4rem;">Veda ankstyvosios intervencijos programos užsiėmimus nepilnamečiams asmenims nuo 12 metų, kurie eksperimentuoja ar nereguliariai vartoja psichoaktyviąsias medžiagas.</li>
+    </ul>
+  `,
+
+      faustina: `
+    <h3 style="margin-top: 1.5rem; font-size: 1.2rem; color: #333; margin-bottom: 2rem; text-align: center;">
+      KAIŠIADORIŲ ŠV. FAUSTINOS UGDYMO CENTRAS
+    </h3>
+    <p>El. paštas: 
+      <a href="mailto:dovile.rudyte-seskeviciene@faustinosmokykladc.lt" style="color:#3c4aad; text-decoration: underline;">
+        dovile.rudyte-seskeviciene@faustinosmokykladc.lt
+      </a>
+    </p>
+
+    <h3 style="margin-top: 1.5rem; font-size: 1.2rem; color: #333;">Tikslinė grupė</h3>
+    <p>Mokiniai, turintys įvairiapusių raidos sutrikimų, intelekto sutrikimą, mokymosi sutrikimų bei judesio ir padėties sutrikimų, kai pedagoginės psichologinės tarnybos ir (ar) kitų įstaigų rekomendacijų pagrindu teikiama pagalba.</p>
+
+    <h3 style="margin-top: 1.5rem; font-size: 1.2rem; color: #333;">Pagrindinės funkcijos</h3>
+    <ul style="padding-left: 1.2rem; margin: 0.5rem 0;">
+      <li style="margin-bottom: 0.4rem;">Per atvejų stebėjimus teikia pagalbą dėl:</li>
+      <ul style="padding-left: 1.2rem; margin: 0.4rem 0;">
+        <li style="margin-bottom: 0.4rem;">universalaus dizaino mokymuisi principų diegimo;</li>
+        <li style="margin-bottom: 0.4rem;">ugdymo turinio pritaikymo;</li>
+        <li style="margin-bottom: 0.4rem;">mokymo(si) metodų ir mokymo(si) priemonių parinkimo, aplinkų pritaikymo;</li>
+        <li style="margin-bottom: 0.4rem;">specialiųjų techninės pagalbos priemonių pasirinkimo;</li>
+        <li style="margin-bottom: 0.4rem;">individualių ir pagalbos planų sudarymo.</li>
+      </ul>
+    </ul>
+
+    <h3 style="margin-top: 1.5rem; font-size: 1.2rem; color: #333;">Papildomos funkcijos</h3>
+    <p>Organizuoja su konkrečiu konsultuojamu atveju susijusius mokymus.</p>
+  `,
+      savivaldybe: `
+    <h3 style="margin-top: 1.5rem; font-size: 1.2rem; color: #333; margin-bottom: 2rem; text-align: center;">
+      KAIŠIADORIŲ RAJONO SAVIVALDYBĖS ADMINISTRACIJOS TARPINSTITUCINIO BENDRADARBIAVIMO KOORDINATORIUS
+    </h3>
+    <p>El. paštas: 
+      <a href="mailto:nijole.butrimaviciene@kaisiadorys.lt" style="color:#3c4aad; text-decoration: underline;">
+        nijole.butrimaviciene@kaisiadorys.lt
+      </a>
+    </p>
+
+    <h3 style="margin-top: 1.5rem; font-size: 1.2rem; color: #333;">Tikslinė grupė</h3>
+    <ul style="padding-left: 1.2rem; margin: 0.5rem 0;">
+      <li style="margin-bottom: 0.4rem;">Vaikai nuo gimimo iki 18 metų ir asmenys, turintys didelių ar labai didelių specialiųjų ugdymosi poreikių iki 21 metų</li>
+      <li style="margin-bottom: 0.4rem;">Tėvai (globėjai, rūpintojai), pedagogai</li>
+    </ul>
+
+    <h3 style="margin-top: 1.5rem; font-size: 1.2rem; color: #333;">Pagrindinės funkcijos</h3>
+    <ul style="padding-left: 1.2rem; margin: 0.5rem 0;">
+      <li style="margin-bottom: 0.4rem;">Koordinuoja ir vertina:
+        <ul style="padding-left: 1.2rem; margin: 0.4rem 0;">
+          <li style="margin-bottom: 0.4rem;">vaiko minimalios priežiūros priemonių įgyvendinimą;</li>
+          <li style="margin-bottom: 0.4rem;">pagal įstatymą koordinuotai teikiamų paslaugų, kitų pagalbos priemonių vaiko atstovams, kai vaikui skiriamos minimalios ar vidutinės priežiūros priemonės, teikimą.</li>
+        </ul>
+      </li>
+      <li style="margin-bottom: 0.4rem;">Koordinuoja Ankstyvosios intervencijos programos vykdymą nepilnamečiams asmenims nuo 12 metų, kurie eksperimentuoja ar nereguliariai vartoja psichoaktyviąsias medžiagas, formuoja grupes.</li>
+      <li style="margin-bottom: 0.4rem;">Teikia konsultacijas pagalbą ugdymo įstaigoms dėl paslaugų vaikui ir šeimai organizavimo, pagalbos planų sudarymo.</li>
+      <li style="margin-bottom: 0.4rem;">Organizuoja administracinių paslaugų teikimą arba prireikus koordinuoja paslaugų teikimo organizavimą.</li>
+    </ul>
+
+    <h3 style="margin-top: 1.5rem; font-size: 1.2rem; color: #333;">Papildomos funkcijos</h3>
+    <p>Organizuoja mokymus švietimo pagalbos specialistams, ugdymo įstaigų vaiko gerovės komisijų nariams apie pagalbos / paslaugų organizavimą: nuo poreikių įvertinimo iki pagalbos plano sudarymo bei stebėsenos.</p>
+  `,
+      girzado: `
+  <h3 style="margin-top: 1.5rem; font-size: 1.2rem; color: #333; margin-bottom: 2rem; text-align: center;">
+    KAIŠIADORIŲ VACLOVO GIRŽADO PROGIMNAZIJA
+  </h3>
+  <p>El. paštas: 
+    <a href="mailto:migle.balciunaite-kazanaviciene@v.girzado-progimnazija.lt" style="color:#3c4aad; text-decoration: underline;">
+      migle.balciunaite-kazanaviciene@v.girzado-progimnazija.lt
+    </a>
+  </p>
+
+  <h3 style="margin-top: 1.5rem; font-size: 1.2rem; color: #333;">Tikslinė grupė</h3>
+  <ul style="padding-left: 1.2rem; margin: 0.5rem 0;">
+    <li style="margin-bottom: 0.4rem;">Ikimokyklinio, priešmokyklinio ugdymo amžiaus vaikai</li>
+    <li style="margin-bottom: 0.4rem;">1–8 klasių mokiniai</li>
+    <li style="margin-bottom: 0.4rem;">Tėvai (globėjai, rūpintojai)</li>
+    <li style="margin-bottom: 0.4rem;">Mokytojai, švietimo pagalbos specialistai</li>
+  </ul>
+
+  <h3 style="margin-top: 1.5rem; font-size: 1.2rem; color: #333;">Pagrindinės funkcijos</h3>
+  <p>Remdamasi gerąja darbo praktika:</p>
+  <ul style="padding-left: 1.2rem; margin: 0.5rem 0;">
+    <li style="margin-bottom: 0.4rem;">Teikia rekomendacijas mokytojams, tėvams, švietimo pagalbos specialistams dėl įvairių ugdymo(si) poreikių turinčių mokinių ugdymo bendrojo ugdymo mokykloje: programų pritaikymo bei individualizavimo, individualių ugdymo planų rengimo, gabių mokinių atpažinimo ir ugdymo bendrojo ugdymo mokykloje.
+    </li>
+  </ul>
+  <ul style="padding-left: 1.2rem; margin: 0.5rem 0;">
+    <li style="margin-bottom: 0.4rem;">Konsultuoja:
+      <ul style="padding-left: 1.2rem; margin: 0.4rem 0;">
+        <li style="margin-bottom: 0.4rem;">mokytojus, vaiko gerovės komisijos narius dėl mokinio pirminio poreikių vertinimo, ugdymo pritaikymo ir (ar) švietimo pagalbos skyrimo;</li>
+        <li style="margin-bottom: 0.4rem;">tėvus (globėjus, rūpintojus) dėl specialiųjų ugdymosi poreikių turinčių mokinių ugdymo bendrojo ugdymo  mokykloje.</li>
+      </ul>
+    </li>
+  </ul>
+`,
+      neformalus: `
+  <h3 style="margin-top: 1.5rem; font-size: 1.2rem; color: #333; margin-bottom: 2rem; text-align: center;">
+    KAIŠIADORIŲ ŠVIETIMO IR SPORTO CENTRO NEFORMALIOJO ŠVIETIMO SKYRIUS
+  </h3>
+  <p>El. paštas: 
+    <a href="mailto:gintare.juzukoniene@kaisiadorysssc.lt" style="color:#3c4aad; text-decoration: underline;">
+      gintare.juzukoniene@kaisiadorysssc.lt
+    </a>
+  </p>
+
+  <h3 style="margin-top: 1.5rem; font-size: 1.2rem; color: #333;">Tikslinė grupė</h3>
+  <ul style="padding-left: 1.2rem; margin: 0.5rem 0;">
+    <li style="margin-bottom: 0.4rem;">Pedagogai</li>
+    <li style="margin-bottom: 0.4rem;">Pagalbos mokiniui specialistai</li>
+    <li style="margin-bottom: 0.4rem;">Ugdymo įstaigų vadovai</li>
+  </ul>
+
+  <h3 style="margin-top: 1.5rem; font-size: 1.2rem; color: #333;">Pagrindinės funkcijos</h3>
+  <ul style="padding-left: 1.2rem; margin: 0.5rem 0;">
+    <li style="margin-bottom: 0.4rem;">Vykdo kvalifikacijos tobulinimo programas pagal įstaigų prioritetus bei pedagogų poreikį.</li>
+    <li style="margin-bottom: 0.4rem;">Organizuoja įtraukiojo ugdymo teminių grupių ir švietimo pokyčių inicijavimo grupės veiklą, kuri padeda spręsti ugdymo proceso metu kylančias įtraukiojo ugdymo problemas.</li>
+    <li style="margin-bottom: 0.4rem;">Kaupia įtraukiojo ugdymo metodinę medžiagą Edukaciniame patirties banke.</li>
+  </ul>
+
+  <h3 style="margin-top: 1.5rem; font-size: 1.2rem; color: #333;">Papildomos funkcijos</h3>
+  <p>Organizuoja renginius, kuriuose sudaromos sąlygos mokiniams pademonstruoti savo gebėjimus.</p>
+`,
+      biuras: `
+  <h3 style="margin-top: 1.5rem; font-size: 1.2rem; color: #333; margin-bottom: 2rem; text-align: center;">
+    KAIŠIADORIŲ VISUOMENĖS SVEIKATOS BIURAS
+  </h3>
+  <p>El. paštas: 
+    <a href="mailto:info@kaisiadorysvsb.lt" style="color:#3c4aad; text-decoration: underline;">
+      info@kaisiadorysvsb.lt
+    </a>
+  </p>
+
+  <h3 style="margin-top: 1.5rem; font-size: 1.2rem; color: #333;">Tikslinė grupė</h3>
+  <ul style="padding-left: 1.2rem; margin: 0.5rem 0;">
+    <li style="margin-bottom: 0.4rem;">Vaikai</li>
+    <li style="margin-bottom: 0.4rem;">Mokiniai</li>
+    <li style="margin-bottom: 0.4rem;">Tėvai</li>
+  </ul>
+
+  <h3 style="margin-top: 1.5rem; font-size: 1.2rem; color: #333;">Pagrindinės funkcijos</h3>
+  <ul style="padding-left: 1.2rem; margin: 0.5rem 0;">
+    <li style="margin-bottom: 0.4rem;">Veda:
+      <ul style="padding-left: 1.2rem; margin: 0.4rem 0;">
+        <li style="margin-bottom: 0.4rem;">ankstyvosios intervencijos programos užsiėmimus nepilnamečiams asmenims nuo 12 metų, kurie eksperimentuoja ar nereguliariai vartoja psichoaktyviąsias medžiagas;</li>
+        <li style="margin-bottom: 0.4rem;">užsiėmimus sveikatos išsaugojimo ir stiprinimo tema;</li>
+        <li style="margin-bottom: 0.4rem;">konsultacijas, individualius pokalbius tėvams ir mokytojams sveikatos išsaugojimo ir stiprinimo tema;</li>
+        <li style="margin-bottom: 0.4rem;">užsiėmimus, paskaitas ir individualias konsultacijas Kaišiadorių r. gyventojams psichinės sveikatos stiprinimo srityje.</li>
+      </ul>
+    </li>
+  </ul>
+`,
+      socialiniai: `
+  <h3 style="margin-top: 1.5rem; font-size: 1.2rem; color: #333; margin-bottom: 2rem; text-align: center;">
+    KAIŠIADORIŲ SOCIALINIŲ PASLAUGŲ CENTRAS
+  </h3>
+  <p>El. paštas: 
+    <a href="mailto:aukse.sinkevice@kaisiadoriuspc.lt" style="color:#3c4aad; text-decoration: underline;">
+      aukse.sinkevice@kaisiadoriuspc.lt
+    </a>
+  </p>
+
+  <h3 style="margin-top: 1.5rem; font-size: 1.2rem; color: #333;">Tikslinė grupė</h3>
+  <p>Socialinę riziką patiriančios šeimos ir jų vaikai</p>
+
+  <h3 style="margin-top: 1.5rem; font-size: 1.2rem; color: #333;">Pagrindinės funkcijos</h3>
+  <ul style="padding-left: 1.2rem; margin: 0.5rem 0;">
+    <li style="margin-bottom: 0.4rem;">
+      Vaikų dienos socialinės priežiūros paslaugas vaikų dienos centruose (ugdomi kasdienio gyvenimo įgūdžiai (savitvarkos, asmens higienos, sveikos gyvensenos ir kt.), teikiama pagalba ruošiant pamokas, teikiamos maitinimo organizavimo, laisvalaikio, psichologinės pagalbos organizavimo paslaugos, organizuojamos kitos paslaugos pagal individualius vaiko poreikius);
+    </li>
+    <li style="margin-bottom: 0.4rem;">
+      Socialinės priežiūros šeimoms paslaugas socialinę riziką patiriančioms šeimoms ir jų vaikams, taikomas atvejo vadybos procesas. Teikiamos bendravimo, bendradarbiavimo, sprendimų priėmimo įgūdžių ugdymo, motyvavimo siekti teigiamų pokyčių šeimos gyvenime, kitų pagalbos priemonių pagal šeimos narių poreikius (psichosocialinės ar intensyvios krizių įveikimo pagalbos, psichologinio konsultavimo, vaikų dienos socialinės priežiūros, piniginės paramos, užimtumo, sveikatos priežiūros, švietimo, socialinio būsto, kitų priemonių, padedančių patenkinti individualius pagalbos poreikius, ir kt.) organizavimo, pagalbos šeimos nariams prižiūrint mažamečius vaikus ir vaikus su negalia, užtikrinant jų saugumą, įgūdžių ugdymą ir poreikių tenkinimą pagal vaiko amžių, kitų specialistų (psichologo, dietologo, gydytojo, kineziterapeuto ir kt.) pagal poreikius teikiamų paslaugų organizavimo paslaugos.
+    </li>
+  </ul>
+`,
+      vgk: `
+  <h3 style="margin-top: 1.2rem; font-size: 1.2rem; color: #333; margin-bottom: 1rem;">VAIKO GEROVĖS KOMISIJOS PAGRINDINĖS FUNKCIJOS:</h3>
+  <ol style="padding-left: 1.2rem; margin-bottom: 1rem;">
+    <li style="margin-bottom: 0.4rem;">Vaiko teisių apsauga: vykdo Vaiko minimalios ir vidutinės priežiūros įstatyme numatytas funkcijas.</li>
+    <li style="margin-bottom: 0.4rem;">Saugaus ugdymo užtikrinimas: teikia siūlymus dėl saugios ir palankios aplinkos kūrimo, socialinio-emocinio ugdymo ir prevencijos priemonių.</li>
+    <li style="margin-bottom: 0.4rem;">Ugdymosi poreikių vertinimas: atlieka pirminį mokinio ugdymosi poreikių įvertinimą.</li>
+    <li style="margin-bottom: 0.4rem;">Pagalbos organizavimas: koordinuoja ugdymo pritaikymą, pagalbos teikimą, individualaus ugdymo planų sudarymą ir įgyvendinimą.</li>
+    <li style="margin-bottom: 0.4rem;">Tėvų atsakomybės stebėsena: teikia siūlymus mokyklos vadovui dėl kreipimosi į vaiko teisių apsaugos institucijas, jei tėvai neužtikrina vaiko teisių.</li>
+    <li style="margin-bottom: 0.4rem;">Karjeros konsultavimas: padeda specialiųjų poreikių mokiniams pasirinkti tolesnį mokymosi kelią ir užtikrina sklandų perėjimą į kitą įstaigą.</li>
+    <li style="margin-bottom: 0.4rem;">Priežiūros priemonių inicijavimas: siūlo minimalios priežiūros priemonių skyrimą, keitimą ar nutraukimą.</li>
+    <li style="margin-bottom: 0.4rem;">Reintegracijos užtikrinimas: organizuoja pagalbą vaikams po vidutinės priežiūros ar auklėjamojo poveikio priemonių taikymo, siekiant sklandaus jų grįžimo į ugdymo procesą.</li>
+  </ol>
+`,
+      specPedagogas: `
+    <h3 style="margin-top: 1.2rem; font-size: 1.2rem; color: #333; margin-bottom: 1rem;">SPECIALUSIS PEDAGOGAS IR LOGOPEDAS:</h3>
+    <ul style="padding-left: 1.2rem;">
+      <li style="margin-bottom: 0.4rem;">Įvertina mokinio:
+        <ul style="padding-left: 1.2rem;">
+          <li style="margin-bottom: 0.4rem;">pagalbos ugdymo procese reikmes;</li>
+          <li style="margin-bottom: 0.4rem;">ugdymosi ir dalyvavimo ugdymo procese sunkumų pobūdį;</li>
+          <li style="margin-bottom: 0.4rem;">ugdymosi poreikius ir su jais supažindina mokinį ir jo tėvus (globėjus, rūpintojus);</li>
+          <li style="margin-bottom: 0.4rem;">individualių ugdymosi poreikių tenkinimo kryptis ir būdus, analizuoja,  aptaria su ugdymo proceso dalyviais (mokiniu, mokytojais, kitais pagalbą teikiančiais specialistais, mokyklos Vaiko gerovės komisijos (toliau – VGK) nariais, specialistais) mokinio mokymosi pasiekimus ir  pažangą;</li>
+        </ul>
+      </li>
+    </ul>
+    <ul style="padding-left: 1.2rem;">
+      <li style="margin-bottom: 0.4rem;">Teikia pagalbą:
+        <ul style="padding-left: 1.2rem;">
+          <li style="margin-bottom: 0.4rem;">mokiniui įprastoje ugdymosi aplinkoje ar kitose ugdymui skirtose erdvėse individualių, pogrupinių ar grupinių pratybų metu;</li>
+          <li style="margin-bottom: 0.4rem;">mokiniui padėdamas  pažinti savo stiprybes, planuoti mokymąsi, didina mokinių, turinčių SUP, mokymosi motyvaciją, savarankiškumą;</li>
+          <li style="margin-bottom: 0.4rem;">kuriant universalaus dizaino principus atitinkančią ugdymo aplinką ir pritaikant ugdymo turinį, padeda mokytojui struktūruoti klasės aplinką ir ugdymo veiklas, ieškoti veiksmingų mokinio įtraukties į ugdymą mokymo(si) strategijų.</li>
+        </ul>
+      </li>
+    </ul>
+`,
+      padejejas: `
+  <h3 style="margin-top: 1.2rem; font-size: 1.2rem; color: #333; margin-bottom: 1rem;">MOKINIO PADĖJĖJAS:</h3>
+  <ul style="padding-left: 1.2rem;">
+    <li style="margin-bottom: 0.4rem;">Padeda mokiniui ar (ir) mokinių grupei:</li>
+    <ul style="padding-left: 1.2rem;">
+      <li style="margin-bottom: 0.4rem;">atlikti su savitarna, savitvarka ir maitinimusi susijusias veiklas;</li>
+      <li style="margin-bottom: 0.4rem;">įsitraukti į ugdomąsias veiklas, dalyvauti ugdymo procese, pasiruošti pamokai reikiamas priemones, teikti pagalbą pertraukų tarp pamokų metu ir t.t.;</li>
+      <li style="margin-bottom: 0.4rem;">orientuotis aplinkoje, judėti;</li>
+      <li style="margin-bottom: 0.4rem;">naudotis ugdymui skirtomis techninės pagalbos priemonėmis pagal mokytojo ar švietimo pagalbos specialisto pateiktą instrukciją, o mokytojui – jas paruošti;</li>
+      <li style="margin-bottom: 0.4rem;">elgtis socialiai priimtinu būdu, išvengti elgesio, kuris netinkamas, arba pasišalinti iš elgesį išprovokavusios aplinkos;</li>
+      <li style="margin-bottom: 0.4rem;">dalyvauti nacionaliniuose mokymosi pasiekimų patikrinimuose, pagrindinio ugdymo pasiekimų patikrinimuose ir brandos egzaminuose;</li>
+      <li style="margin-bottom: 0.4rem;">integruotis į mokyklos bendruomenę, palaikyti draugystę su bendraamžiais, skatinti bendravimą ir bendradarbiavimą.</li>
+    </ul>
+  </ul>
+`,
+      socPedagogas: `
+  <h3 style="margin-top: 1.2rem; font-size: 1.2rem; color: #333; margin-bottom: 1rem;">SOCIALINIS PEDAGOGAS:</h3>
+  <ul style="padding-left: 1.2rem;">
+    <li style="margin-bottom: 0.4rem;">socialiniu pedagoginiu aspektu vertina mokinių ugdymosi poreikius.</li>
+    <li style="margin-bottom: 0.4rem;">dalyvauja:</li>
+      <ul style="padding-left: 1.2rem;">
+        <li style="margin-bottom: 0.4rem;">atliekant pirminį ir (ar) pakartotinį mokinio specialiųjų ugdymosi poreikių vertinimą;</li>
+        <li style="margin-bottom: 0.4rem;">organizuojant ir vykdant prevencines veiklas;</li>
+      </ul>
+    <li style="margin-bottom: 0.4rem;">ugdo mokinių socialines ir emocines kompetencijas;</li>
+    <li style="margin-bottom: 0.4rem;">konsultuoja mokinius, mokinių tėvus (globėjus, rūpintojus) dėl socialinių pedagoginių problemų sprendimo;</li>
+    <li style="margin-bottom: 0.4rem;">teikia socialinę pagalbą vaikams ir mokiniams.</li>
+  </ul>
+`,
+      psichologas: `
+  <h3 style="margin-top: 1.2rem; font-size: 1.2rem; color: #333; margin-bottom: 1rem;">PSICHOLOGAS:</h3>
+  <ul style="padding-left: 1.2rem;">
+    <li style="margin-bottom: 0.4rem;">atlieka mokinio pagalbos ir (ar) ugdymosi poreikių vertinimą;</li>
+    <li style="margin-bottom: 0.4rem;">konsultuoja mokinius, jų tėvus (globėjus, rūpintojus), mokytojus ir (ar) veda jiems užsiėmimus, teikia rekomendacijas;</li>
+    <li style="margin-bottom: 0.4rem;">šviečia mokinius, jų tėvus (globėjus, rūpintojus) vaiko raidos psichologijos, pedagoginės ir socialinės psichologijos, mokinių psichologinių problemų prevencijos klausimais;</li>
+    <li style="margin-bottom: 0.4rem;">vykdo krizių intervenciją ir postvenciją.</li>
+  </ul>
+`,
+    };
+
+    const LEVEL_3_MAIN = "#ab3b15";
+    const LEVEL_1_MAIN = "#3c4aad";
+    const LEVEL_1_SUB = "#2196f3";
+    const LEVEL_1_ALT = "#43a047";
+    const LEVEL_1_HIGHLIGHT = "#7e57c2";
+
+    window.addEventListener("load", () => {
+      new LeaderLine(
+        document.getElementById("level-3-main-box"),
+        document.getElementById("level-3-box-1"),
+        {
+          color: LEVEL_3_MAIN,
+          endPlug: "arrow",
+          path: "straight",
+          startSocket: "bottom",
+          endSocket: "top",
+        }
+      );
+
+      new LeaderLine(
+        document.getElementById("level-3-main-box"),
+        document.getElementById("level-3-box-2"),
+        {
+          color: LEVEL_3_MAIN,
+          endPlug: "arrow",
+          path: "straight",
+          startSocket: "bottom",
+          endSocket: "top",
+        }
+      );
+
+      // Only add this line on wider screens
+      let lineMain;
+      if (window.innerWidth > 600) {
+        new LeaderLine(
+          document.getElementById("level-3-box-1"),
+          document.getElementById("level-3-box-2"),
+          {
+            color: "#f48f1e",
+            endPlug: "arrow",
+            path: "straight",
+            startSocket: "right",
+            endSocket: "left",
+            startPlug: "arrow1",
+          }
+        );
+      } else {
+        new LeaderLine(
+          document.getElementById("level-3-box-1"),
+          document.getElementById("level-3-box-2"),
+          {
+            color: "#f48f1e",
+            endPlug: "arrow",
+            path: "grid",
+            startSocket: "bottom",
+            endSocket: "bottom",
+            startPlug: "arrow1",
+          }
+        );
+      }
+      // Level 1
+      new LeaderLine(
+        document.getElementById("level-1-section-box"),
+        document.getElementById("level-1-director"),
+        {
+          color: LEVEL_1_SUB,
+          endPlug: "arrow",
+          path: "straight",
+          startSocket: "top",
+          endSocket: "bottom",
+        }
+      );
+
+      if (window.innerWidth > 487) {
+        new LeaderLine(
+          document.getElementById("level-1-child"),
+          document.getElementById("level-1-section-box"),
+          {
+            color: LEVEL_1_HIGHLIGHT,
+            endPlug: "arrow",
+            path: "straight",
+            startSocket: "top",
+            endSocket: "bottom",
+          }
+        );
+      } else {
+        new LeaderLine(
+          document.getElementById("level-1-child"),
+          document.getElementById("level-1-section-box"),
+          {
+            color: LEVEL_1_HIGHLIGHT,
+            endPlug: "arrow",
+            path: "grid",
+            startSocket: "top",
+            endSocket: "bottom",
+          }
+        );
+      }
+      new LeaderLine(
+        document.getElementById("level-1-parent"),
+        document.getElementById("level-1-section-box"),
+        {
+          color: LEVEL_1_HIGHLIGHT,
+          endPlug: "arrow",
+          path: "grid",
+          startSocket: "top",
+          endSocket: "bottom",
+          startPlug: "arrow1",
+        }
+      );
+
+      new LeaderLine(
+        document.getElementById("level-1-child"),
+        document.getElementById("level-1-parent"),
+        {
+          color: LEVEL_1_HIGHLIGHT,
+          endPlug: "arrow",
+          path: "straight",
+          startSocket: "left",
+          endSocket: "right",
+        }
+      );
+      if (window.innerWidth > 487) {
+        new LeaderLine(
+          document.getElementById("level-1-child"),
+          document.getElementById("level-1-teacher"),
+          {
+            color: LEVEL_1_HIGHLIGHT,
+            endPlug: "arrow",
+            path: "grid",
+            startSocket: "bottom",
+            endSocket: "top",
+          }
+        );
+      } else {
+        new LeaderLine(
+          document.getElementById("level-1-child"),
+          document.getElementById("level-1-teacher"),
+          {
+            color: LEVEL_1_HIGHLIGHT,
+            endPlug: "arrow",
+            path: "grid",
+            startSocket: "bottom",
+            endSocket: "top",
+          }
+        );
+      }
+      if (window.innerWidth > 487) {
+        new LeaderLine(
+          document.getElementById("level-1-child"),
+          document.getElementById("level-1-class"),
+          {
+            color: LEVEL_1_HIGHLIGHT,
+            endPlug: "arrow",
+            path: "grid",
+            startSocket: "bottom",
+            endSocket: "top",
+          }
+        );
+      } else {
+        new LeaderLine(
+          document.getElementById("level-1-child"),
+          document.getElementById("level-1-class"),
+          {
+            color: LEVEL_1_HIGHLIGHT,
+            endPlug: "arrow",
+            path: "grid",
+            startSocket: "bottom",
+            endSocket: "right",
+          }
+        );
+      }
+      if (window.innerWidth > 487) {
+        new LeaderLine(
+          document.getElementById("level-1-child"),
+          document.getElementById("level-1-responsible"),
+          {
+            color: LEVEL_1_HIGHLIGHT,
+            endPlug: "arrow",
+            path: "grid",
+            startSocket: "bottom",
+            endSocket: "top",
+          }
+        );
+      } else {
+        new LeaderLine(
+          document.getElementById("level-1-child"),
+          document.getElementById("level-1-responsible"),
+          {
+            color: LEVEL_1_HIGHLIGHT,
+            endPlug: "arrow",
+            path: "grid",
+            startSocket: "bottom",
+            endSocket: "right",
+          }
+        );
+      }
+      if (window.innerWidth > 487) {
+        new LeaderLine(
+          document.getElementById("level-1-teacher"),
+          document.getElementById("level-1-class"),
+          {
+            color: LEVEL_1_MAIN,
+            endPlug: "arrow",
+            path: "direct",
+            startSocket: "right",
+            endSocket: "left",
+            startPlug: "arrow1",
+          }
+        );
+      } else {
+        new LeaderLine(
+          document.getElementById("level-1-teacher"),
+          document.getElementById("level-1-class"),
+          {
+            color: LEVEL_1_MAIN,
+            endPlug: "arrow",
+            path: "direct",
+            startSocket: "bottom",
+            endSocket: "top",
+            startPlug: "arrow1",
+          }
+        );
+      }
+      if (window.innerWidth > 806) {
+        new LeaderLine(
+          document.getElementById("level-1-class"),
+          document.getElementById("level-1-responsible"),
+          {
+            color: LEVEL_1_MAIN,
+            endPlug: "arrow",
+            path: "direct",
+            startSocket: "right",
+            startPlug: "arrow1",
+            endSocket: "left",
+          }
+        );
+      } else {
+        if (window.innerWidth > 487) {
+          new LeaderLine(
+            document.getElementById("level-1-class"),
+            document.getElementById("level-1-responsible"),
+            {
+              color: LEVEL_1_MAIN,
+              endPlug: "arrow",
+              path: "grid",
+              startSocket: "bottom",
+              startPlug: "arrow1",
+              endSocket: "right",
+            }
+          );
+        } else {
+          new LeaderLine(
+            document.getElementById("level-1-class"),
+            document.getElementById("level-1-responsible"),
+            {
+              color: LEVEL_1_MAIN,
+              endPlug: "arrow",
+              path: "direct",
+              startSocket: "bottom",
+              startPlug: "arrow1",
+              endSocket: "top",
+            }
+          );
+        }
+      }
+    });
+
+    let scrollPosition = 0;
+
+    // Select modal elements
+    const modal = document.getElementById("modal");
+    const modalText = document.getElementById("modal-text");
+    const closeModal = document.getElementById("modal-close");
+
+    // Unified close function
+    function openModal(contentKey) {
+      modalText.innerHTML =
+        modalContents[contentKey] || "<p>Turinys nerastas.</p>";
+      modal.classList.remove("hidden");
+
+      // Lock scroll
+      scrollPosition = window.scrollY;
+      document.body.style.top = `-${scrollPosition}px`;
+      document.body.classList.add("modal-open");
+      document.body.style.position = "fixed";
+      document.body.style.width = "100%";
+    }
+
+    function closeModalFunc() {
+      modal.classList.add("hidden");
+
+      // Unlock scroll and restore position
+      document.body.classList.remove("modal-open");
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      window.scrollTo(0, scrollPosition);
+    }
+    // Close modal on click
+    closeModal.addEventListener("click", closeModalFunc);
+    modal
+      .querySelector(".modal-backdrop")
+      .addEventListener("click", closeModalFunc);
+
+    // Modal open: level-2 boxes
+    document.querySelectorAll(".level-2 .box").forEach((box) => {
+      box.addEventListener("click", () => {
+        const key = box.getAttribute("data-id");
+        openModal(key);
+      });
+    });
+
+    // Modal open: modal-trigger elements
+    document.querySelectorAll(".modal-trigger").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const key = btn.getAttribute("data-modal");
+        openModal(key);
+      });
+    });
+  </script>
+</html>
