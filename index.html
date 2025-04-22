@@ -5,7 +5,624 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ĮTRAUKIOJO UGDYMO SISTEMA</title>
     <style>
-      .accordion,.footer,.main-nav,.panel{background-color:#fff}body,html{padding:0}html{font-size:16px;margin:0;box-sizing:border-box;overflow:auto}body{font-family:Arial,sans-serif;background-color:#f9fbfd;height:100vh}.container{padding:2.5rem}.accordion-wrap{max-width:70rem;margin:auto}.accordion{font-size:1rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;color:#444;cursor:pointer;padding:18px;width:100%;border:none;outline:0;transition:background-color .4s;margin:5px auto}@media (max-width:768px){.accordion{flex-direction:column;align-items:flex-start;gap:.5rem;align-items:center}.accordion .accordion-icon,.accordion .accordion-indicator{padding:0}.accordion .accordion-text strong{text-align:center;font-size:1.2rem;padding:.5rem 0}}.accordion-level-1{border:2px dashed #3c4aad}.accordion-level-1.active,.accordion-level-1:hover{background-color:rgba(60,74,173,.1)}.accordion-level-1 .accordion-text strong{color:#3c4aad}.accordion-level-2{border:2px dashed #4b8b2c}.accordion-level-2.active,.accordion-level-2:hover{background-color:rgba(75,139,44,.1)}.accordion-level-2 .accordion-text strong{color:#4b8b2c}.accordion-level-3{border:2px dashed #ab3b15}.accordion-level-3.active,.accordion-level-3:hover{background-color:rgba(171,59,21,.1)}.accordion-level-3 .accordion-text strong{color:#ab3b15}.accordion-icon{flex-shrink:0;padding:0 2.5rem}.accordion-text{text-align:justify;flex-grow:1}.accordion-text strong{display:block}.accordion-indicator{transition:transform .3s;padding:0 2.5rem}.accordion.active .accordion-indicator{transform:rotate(180deg)}.level-2 .box:hover,.modal-trigger:hover{transform:scale(1.03);box-shadow:0 .5rem 1.2rem rgba(0,0,0,.15)}.panel{max-height:0;overflow:hidden;opacity:0;padding:0 18px;transition:max-height .4s,opacity .3s}.panel.open{max-height:2000px;opacity:1}.footer{border-top:1px solid #ddd;padding:.5rem 1rem;margin-top:0;text-align:center;color:#777;font-size:.9rem}.footer .footer-content{max-width:900px;margin:0 auto;line-height:1.6}#modal-text a,.footer .footer-content a{color:#3c4aad;text-decoration:underline}.footer .footer-content a:hover{color:#2a3282}.app-header{text-align:center;margin:0 auto 3rem;padding:0 1rem;max-width:900px}.app-header h1{font-size:1.8rem;color:#2c3e50;font-weight:700;max-width:50rem;margin:auto;padding-bottom:2rem}.app-header .quote{font-style:italic;color:#444;font-size:1.2rem;max-width:700px;margin:0 auto;line-height:1.7}.diagram-hint,.level-1,.level-2,.level-3{max-width:52rem}.main-nav{border-bottom:1px solid #ddd;padding:1.5rem 2rem;margin-bottom:0}.main-nav .nav-container{max-width:52rem;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap}.main-nav .nav-title{font-size:1.25rem;font-weight:700;color:#3c4aad;margin-bottom:.5rem}@media (min-width:600px){.main-nav .nav-title{margin-bottom:0}}.main-nav .nav-links{list-style:none;display:flex;gap:2rem;padding:0;margin:0;font-size:.9rem}.main-nav .nav-links li a{text-decoration:none;color:#3c4aad;font-weight:700;transition:color .2s}.main-nav .nav-links li a:hover{color:#2a2a8a}#modal-text{text-align:start}#modal-text h3{margin-top:1.5rem;font-size:1.2rem;color:#333}#modal-text ul{padding-left:1.2rem;margin:.5rem 0}#modal-text li{margin-bottom:.4rem}.diagram-hint{text-align:left;color:#666;font-size:1.1rem;margin:auto auto 2rem}.level-2 .box,.modal-trigger{cursor:pointer;transition:transform .2s,box-shadow .2s}.level-2 .box:hover{background-color:rgba(76,139,44,.0862745098)}.modal-trigger:hover{background-color:rgba(33,149,243,.1137254902)}.modal{position:fixed;inset:0;display:flex;justify-content:center;align-items:center;z-index:999}.modal.hidden{display:none}.modal .modal-backdrop{position:absolute;inset:0;background-color:rgba(0,0,0,.5)}.level-1,.level-2,.level-3,.modal .modal-content{position:relative;text-align:center}.modal .modal-content{background-color:#fff;border-radius:.5rem;max-width:500px;width:90%;height:auto;max-height:80vh;overflow-y:auto;z-index:1;padding:2rem;box-shadow:0 8px 24px rgba(0,0,0,.2)}.modal .modal-content .modal-close{position:absolute;top:.5rem;right:1rem;cursor:pointer;font-size:2rem;font-weight:700;color:#666;transition:color .2s}.modal .modal-content .modal-close:hover{color:#333}.level-3{border:.3rem dotted #ab3b15;border-radius:1.5625rem;margin:2.5rem auto;padding:2.5rem 1.25rem}.level-3 .level-indicator{position:absolute;top:-1.25rem;left:1.25rem;background-color:#fff;border:.125rem solid #ab3b15;font-size:1.125rem;padding:.5rem 1rem;border-radius:.5rem;font-weight:700;box-shadow:0 .125rem .25rem rgba(0,0,0,.1)}.level-3 .main-box{border:.3125rem solid #ab3b15;border-radius:.75rem;padding:1.25rem;display:inline-block;font-weight:700;margin-bottom:3.125rem}.level-1 .level-indicator,.level-2 .level-indicator{top:-1.25rem;background-color:#fff;font-size:1.125rem;padding:.5rem 1rem;box-shadow:0 .125rem .25rem rgba(0,0,0,.1);font-weight:700;position:absolute}.level-3 .flex-container{display:flex;justify-content:center;gap:3.75rem;margin-top:1.25rem;align-items:flex-start}.level-3 .flex-container .box{border:.3125rem solid #f48f1e;border-radius:.75rem;padding:1.25rem;width:15.625rem}.level-2{border:.3rem dotted #4b8b2c;border-radius:1.5625rem;padding:2.5rem 1.25rem;margin:3rem auto 1rem}.level-2 .level-indicator{right:1.25rem;border:.125rem solid #4b8b2c;border-radius:.5rem}.level-2 .grid-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:1.5rem;margin-top:2rem}.level-2 .grid-container .box{border:.3125rem solid #4caf50;border-radius:.75rem;padding:1.25rem;display:flex;align-items:center;justify-content:center;text-align:center;min-height:6rem}@media (max-width:600px){.container{padding:1.25rem 0}.level-3{padding:1.25rem .625rem 5rem}.level-3 .main-box{margin-bottom:1.875rem}.level-3 .flex-container{gap:.5rem}.level-2 .grid-container .box,.level-3 .flex-container .box{padding:1rem}.level-2{padding:1.25rem .625rem}.level-2 .grid-container{grid-template-columns:1fr;gap:1rem}}.level-1{border:.3rem dotted #3c4aad;border-radius:1.5625rem;padding:2.5rem 1.25rem;margin:3rem auto 0}.level-1 .level-indicator{left:1.25rem;border:.125rem solid #3c4aad;border-radius:.5rem}.level-1 .main-box{border:.25rem solid #3c4aad;border-radius:.75rem;padding:1.25rem;font-weight:700;margin:0 auto 2rem;display:inline-block}.level-1 .section-box{border:.25rem dotted #2196f3;border-radius:.75rem;padding:1rem}.level-1 .section-box .vaiku-geroves-box{border:.25rem solid #2196f3;border-radius:.75rem;padding:.75rem;max-width:25rem;margin:0 auto 1rem}.level-1 .grid-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(12rem,1fr));gap:1.25rem;justify-content:center}.level-1 .grid-container .box{border:.25rem solid #2196f3;border-radius:.75rem;padding:1rem;display:flex;align-items:center;justify-content:center}.level-1 .grid-container .box-green,.level-1 .grid-container-3 .box-green{border-color:#43a047}.level-1 .grid-container .box-school,.level-1 .grid-container-3 .box-school{border-color:#3c4aad}.level-1 .grid-container-2{position:relative;display:grid;grid-template-columns:auto 1fr;justify-content:center;margin:3.8rem 0}.level-1 .grid-container-2 .box{border:.25rem solid #2196f3;border-radius:.75rem;padding:1rem}.level-1 .grid-container-2 .box-purple{padding:1.5rem;height:1.2rem;border-color:#7e57c2;display:flex;align-items:center;justify-content:center}.level-1 .grid-container-2 .first{justify-self:start;width:10rem}.level-1 .grid-container-2 .second{width:10rem;left:50%;transform:translate(-50%,0);position:absolute}.level-1 .grid-container-3{display:flex;justify-content:center;align-items:center;gap:3.5rem;flex-wrap:wrap}.level-1 .grid-container-3 .box{height:2.5rem;border:.25rem solid #2196f3;border-radius:.75rem;padding:1rem 1.5rem;display:flex;align-items:center;justify-content:center;max-width:8rem;width:100%;text-align:center}@media (max-width:806px){.level-1 .grid-container-2 .first,.level-1 .grid-container-2 .second{width:5rem}.level-1 .grid-container-3 .box{padding:1rem}}@media (max-width:487px){.level-1 .grid-container-2{display:flex;justify-content:space-between}.level-1 .grid-container-2 .first{width:5rem}.level-1 .grid-container-2 .second{width:5rem;position:relative;left:0;transform:translate(10px,0)}.level-1 .grid-container-2 .box{padding:1.5rem 1rem}.level-1 .grid-container-3 .box{padding:.5rem .2rem}}
+      html {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+  background-color: #f9fbfd;
+  height: 100vh;
+}
+
+.container {
+  padding: 1rem 2.5rem 2.5rem;
+}
+.container .all-wrap {
+  background-color: white;
+  max-width: 68rem;
+  margin: auto;
+  border: dashed 2px #ab3b15;
+  border-radius: 0.5rem;
+  padding: 2.5rem 1rem;
+}
+
+.accordion-wrap {
+  max-width: 65rem;
+  margin: auto;
+}
+
+.accordion {
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background-color: white;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  outline: none;
+  transition: background-color 0.4s;
+  margin: 5px auto;
+}
+@media (max-width: 768px) {
+  .accordion {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  .accordion .accordion-icon {
+    padding: 0;
+  }
+  .accordion .accordion-indicator {
+    padding: 0;
+  }
+  .accordion .accordion-text strong {
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 0.5rem 0;
+  }
+}
+.accordion-level-1 {
+  border: solid 2px #3c4aad;
+}
+.accordion-level-1:hover, .accordion-level-1.active {
+  background-color: rgba(60, 74, 173, 0.25);
+}
+.accordion-level-1 .accordion-text strong {
+  color: #3c4aad;
+}
+.accordion-level-2 {
+  border: solid 2px #4b8b2c;
+}
+.accordion-level-2:hover, .accordion-level-2.active {
+  background-color: rgba(75, 139, 44, 0.25);
+}
+.accordion-level-2 .accordion-text strong {
+  color: #4b8b2c;
+}
+.accordion-level-3 {
+  border: solid 2px #eb820c;
+}
+.accordion-level-3:hover, .accordion-level-3.active {
+  background-color: rgba(235, 130, 12, 0.25);
+}
+.accordion-level-3 .accordion-text strong {
+  color: #eb820c;
+}
+.accordion-icon {
+  flex-shrink: 0;
+  padding: 0 2.5rem;
+}
+.accordion-text {
+  text-align: justify;
+  flex-grow: 1;
+}
+.accordion-text strong {
+  display: block;
+}
+.accordion-indicator {
+  transition: transform 0.3s ease;
+  padding: 0 2.5rem;
+}
+.accordion.active .accordion-indicator {
+  transform: rotate(180deg);
+}
+
+.panel {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  background-color: white;
+  padding: 0 1.1rem;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+}
+.panel.open {
+  max-height: 2000px;
+  opacity: 1;
+}
+
+.footer {
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+  padding: 0.5rem 1rem;
+  margin-top: 0;
+  text-align: center;
+  color: #777;
+  font-size: 0.9rem;
+}
+.footer .footer-content {
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+.footer .footer-content a {
+  color: #3c4aad;
+  text-decoration: underline;
+}
+.footer .footer-content a:hover {
+  color: #2a3282;
+}
+
+.app-header {
+  text-align: center;
+  margin: 0 auto 3rem;
+  padding: 0 1rem;
+  max-width: 900px;
+}
+.app-header h1 {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  margin-top: 0;
+  max-width: 50rem;
+  margin: auto;
+  padding-bottom: 2rem;
+}
+.app-header .quote {
+  font-style: italic;
+  color: #444;
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.main-nav {
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: 1.5rem 2rem;
+  margin-bottom: 0;
+}
+.main-nav .nav-container {
+  max-width: 52rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.main-nav .nav-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #3c4aad;
+  margin-bottom: 0.5rem;
+}
+@media (min-width: 600px) {
+  .main-nav .nav-title {
+    margin-bottom: 0;
+  }
+}
+.main-nav .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  padding: 0;
+  margin: 0;
+  font-size: 0.9rem;
+}
+.main-nav .nav-links li a {
+  text-decoration: none;
+  color: #3c4aad;
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
+.main-nav .nav-links li a:hover {
+  color: #2a2a8a;
+}
+
+#modal-text {
+  text-align: start;
+}
+#modal-text h3 {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  color: #333;
+}
+#modal-text ul {
+  padding-left: 1.2rem;
+  margin: 0.5rem 0;
+}
+#modal-text li {
+  margin-bottom: 0.4rem;
+}
+#modal-text a {
+  color: #3c4aad;
+  text-decoration: underline;
+}
+
+.diagram-hint {
+  text-align: left;
+  color: #666;
+  font-size: 1.1rem;
+  max-width: 52rem;
+  margin: auto;
+  margin-bottom: 2rem;
+}
+
+.diagram-hint-contact {
+  text-align: left;
+  margin: auto;
+  margin: 0 auto;
+  text-align: center;
+  padding: 1.25rem 0;
+}
+.diagram-hint-contact a {
+  color: #3c4aad;
+  text-decoration: underline;
+}
+.diagram-hint-contact a:hover {
+  color: #2a3282;
+}
+
+.level-2 .box {
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.level-2 .box:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.15);
+  background-color: rgba(76, 139, 44, 0.0862745098);
+}
+
+.modal-trigger {
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.modal-trigger:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.15);
+  background-color: rgba(33, 149, 243, 0.1137254902);
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+.modal.hidden {
+  display: none;
+}
+.modal .modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.modal .modal-content {
+  position: relative;
+  background-color: white;
+  border-radius: 0.5rem;
+  max-width: 500px;
+  width: 90%;
+  height: auto;
+  max-height: 80vh;
+  overflow-y: auto;
+  z-index: 1;
+  text-align: center;
+  padding: 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+.modal .modal-content .modal-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  cursor: pointer;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #666;
+  transition: color 0.2s ease;
+}
+.modal .modal-content .modal-close:hover {
+  color: #333;
+}
+
+.level-3 {
+  border: 0.3rem dotted #eb820c;
+  border-radius: 1.5625rem;
+  max-width: 52rem;
+  position: relative;
+  text-align: center;
+  padding: 2.5rem 1.25rem 0;
+  margin: 2.5rem auto 1rem;
+}
+.level-3 .trigger-lines {
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.level-3 .trigger-lines:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.15);
+  background-color: rgba(244, 144, 30, 0.1607843137);
+}
+.level-3 .level-indicator {
+  position: absolute;
+  top: -1.25rem;
+  left: 1.25rem;
+  background-color: white;
+  border: 0.0625rem solid #eb820c;
+  font-size: 1.125rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border-width: 0.125rem;
+  font-weight: bold;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+}
+.level-3 .main-box {
+  border: 0.3125rem solid #eb820c;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  margin: auto;
+  font-weight: bold;
+  margin-bottom: 3.125rem;
+  max-width: 37rem;
+  font-size: 1.2rem;
+}
+.level-3 .flex-container {
+  display: flex;
+  justify-content: center;
+  gap: 3.75rem;
+  margin-top: 1.25rem;
+  align-items: flex-start;
+}
+.level-3 .flex-container .box {
+  border: 0.3125rem solid #f48f1e;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  width: 15.625rem;
+}
+
+@media (max-width: 600px) {
+  .panel {
+    padding: 0;
+  }
+  .container {
+    padding: 1.25rem 0.5rem;
+  }
+  .level-3 {
+    padding: 1.25rem 0.625rem 5rem;
+  }
+  .level-3 .main-box {
+    margin-bottom: 1.875rem;
+  }
+  .level-3 .flex-container {
+    gap: 0.5rem;
+  }
+  .level-3 .flex-container .box {
+    padding: 1rem;
+  }
+}
+.level-2 {
+  border: 0.3rem dotted #4b8b2c;
+  border-radius: 1.5625rem;
+  padding: 2.5rem 1.25rem;
+  max-width: 52rem;
+  margin: 3rem auto 1rem;
+  position: relative;
+  text-align: center;
+}
+.level-2 .level-indicator {
+  position: absolute;
+  top: -1.25rem;
+  right: 1.25rem;
+  background-color: white;
+  border: 0.0625rem solid #4b8b2c;
+  font-weight: bold;
+  font-size: 1.125rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border-width: 0.125rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+}
+.level-2 .grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.level-2 .grid-container .box {
+  border: 0.3125rem solid #4caf50;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.25rem;
+  min-height: 6rem;
+}
+
+@media (max-width: 600px) {
+  .level-2 {
+    padding: 1.25rem 0.625rem;
+  }
+  .level-2 .grid-container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .level-2 .grid-container .box {
+    padding: 1rem;
+  }
+}
+.level-1 {
+  border: 0.3rem dotted #3c4aad;
+  border-radius: 1.5625rem;
+  padding: 2.5rem 1.25rem;
+  max-width: 52rem;
+  margin: 3rem auto;
+  position: relative;
+  text-align: center;
+  margin-bottom: 0;
+}
+.level-1 .level-indicator {
+  position: absolute;
+  top: -1.25rem;
+  left: 1.25rem;
+  background-color: white;
+  border: 0.0625rem solid #3c4aad;
+  font-size: 1.125rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border-width: 0.125rem;
+  font-weight: bold;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+}
+.level-1 .main-box {
+  border: 0.25rem solid #3c4aad;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  font-weight: bold;
+  margin: 0 auto 2rem;
+  display: inline-block;
+}
+.level-1 .section-box {
+  border: 0.25rem dotted #2196f3;
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+.level-1 .section-box .vaiku-geroves-box {
+  border: 0.25rem solid #2196f3;
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  max-width: 25rem;
+  margin: 0 auto 1rem;
+}
+.level-1 .grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: 1.25rem;
+  justify-content: center;
+}
+.level-1 .grid-container .box {
+  border: 0.25rem solid #2196f3;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.level-1 .grid-container .box-green {
+  border-color: #43a047;
+}
+.level-1 .grid-container .box-school {
+  border-color: #3c4aad;
+}
+.level-1 .grid-container-2 {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  justify-content: center;
+  margin: 3.8rem 0;
+}
+.level-1 .grid-container-2 .box {
+  border: 0.25rem solid #2196f3;
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+.level-1 .grid-container-2 .box-purple {
+  padding: 1.5rem;
+  height: 1.2rem;
+  border-color: #7e57c2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.level-1 .grid-container-2 .first {
+  justify-self: start;
+  width: 10rem;
+}
+.level-1 .grid-container-2 .second {
+  width: 10rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+  position: absolute;
+}
+.level-1 .grid-container-3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3.5rem;
+  flex-wrap: wrap;
+}
+.level-1 .grid-container-3 .box {
+  height: 2.5rem;
+  border: 0.25rem solid #2196f3;
+  border-radius: 0.75rem;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 8rem;
+  width: 100%;
+  text-align: center;
+}
+.level-1 .grid-container-3 .box-green {
+  border-color: #43a047;
+}
+.level-1 .grid-container-3 .box-school {
+  border-color: #3c4aad;
+}
+
+@media (max-width: 806px) {
+  .all-wrap {
+    padding: auto 0;
+  }
+  .level-1 .grid-container-2 .first {
+    width: 5rem;
+  }
+  .level-1 .grid-container-2 .second {
+    width: 5rem;
+  }
+  .level-1 .grid-container-3 .box {
+    padding: 1rem;
+  }
+}
+@media (max-width: 487px) {
+  .level-1 .grid-container-2 {
+    display: flex;
+    justify-content: space-between;
+  }
+  .level-1 .grid-container-2 .first {
+    width: 5rem;
+  }
+  .level-1 .grid-container-2 .second {
+    width: 5rem;
+    position: relative;
+    left: 0;
+    transform: translate(10px, 0);
+  }
+  .level-1 .grid-container-2 .box {
+    padding: 1.5rem 1rem;
+  }
+  .level-1 .grid-container-3 .box {
+    padding: 0.5rem 0.2rem;
+  }
+}
+#box-to-display {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#box-to-display.visible {
+  visibility: visible;
+  opacity: 1;
+}/*# sourceMappingURL=3level.css.map */
     </style>
   </head>
 
@@ -32,331 +649,344 @@
     </nav>
 
     <div class="container">
-      <header class="app-header">
-        <h1>KAIŠIADORIŲ RAJONO SAVIVALDYBĖS ĮTRAUKIOJO UGDYMO SISTEMA</h1>
-        <p class="quote">
-          <em
-            >„Įtraukusis ugdymas yra kaip sodas, kuriame kiekviena gėlė turi
-            savą vietą žydėti, nepriklausomai nuo spalvos, dydžio ar formos. Tik
-            tada, kai kiekvienas augalas gauna šviesos ir rūpesčio, sodas tampa
-            pilnas gyvybės ir grožio.“</em
-          >
-        </p>
-      </header>
-      <div class="accordion-wrap">
-        <button class="accordion accordion-level-1">
-          <span class="accordion-icon">
-            <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-            <svg
-              width="64"
-              height="64"
-              version="1.1"
-              id="Capa_1"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              x="0px"
-              y="0px"
-              viewBox="0 0 511 511"
-              style="enable-background: new 0 0 511 511"
-              xml:space="preserve"
+      <div class="all-wrap">
+        <header class="app-header">
+          <h1>KAIŠIADORIŲ RAJONO SAVIVALDYBĖS ĮTRAUKIOJO UGDYMO SISTEMA</h1>
+          <p class="quote">
+            <em
+              >„Įtraukusis ugdymas yra kaip sodas, kuriame kiekviena gėlė turi
+              savą vietą žydėti, nepriklausomai nuo spalvos, dydžio ar formos. Tik
+              tada, kai kiekvienas augalas gauna šviesos ir rūpesčio, sodas tampa
+              pilnas gyvybės ir grožio.“</em
             >
-              <g>
-                <path
-                  d="M503.5,476H487V267h16.5c2.737,0,5.257-1.491,6.575-3.891c1.317-2.4,1.222-5.327-0.247-7.636l-56-88
-		c-1.377-2.164-3.763-3.474-6.328-3.474H298.606L263,128.394V99h72.5c2.766,0,5.308-1.522,6.613-3.961
-		c1.305-2.438,1.162-5.398-0.373-7.699L328.514,67.5l13.227-19.84c1.535-2.301,1.677-5.261,0.373-7.699
-		C340.808,37.522,338.266,36,335.5,36H263v-8.5c0-4.142-3.358-7.5-7.5-7.5s-7.5,3.358-7.5,7.5v100.894L212.394,164H63.5
-		c-2.564,0-4.951,1.31-6.328,3.474l-56,88c-1.469,2.309-1.564,5.236-0.247,7.636C2.243,265.509,4.763,267,7.5,267H24v209H7.5
-		c-4.142,0-7.5,3.358-7.5,7.5s3.358,7.5,7.5,7.5h496c4.142,0,7.5-3.358,7.5-7.5S507.642,476,503.5,476z M443.383,179l46.455,73
-		H386.606l-73-73H443.383z M321.486,51l-8.227,12.34c-1.68,2.519-1.68,5.801,0,8.32L321.486,84H263V51H321.486z M67.617,179h129.776
-		l-73,73H21.163L67.617,179z M39,267h88.498c0.248,0,0.496-0.013,0.744-0.038c0.106-0.01,0.21-0.03,0.315-0.045
-		c0.137-0.02,0.274-0.036,0.411-0.063c0.122-0.024,0.24-0.058,0.36-0.088c0.117-0.029,0.235-0.056,0.351-0.09
-		c0.118-0.036,0.233-0.081,0.349-0.122c0.115-0.041,0.23-0.079,0.344-0.126c0.109-0.045,0.213-0.098,0.319-0.148
-		c0.115-0.055,0.232-0.106,0.345-0.167c0.103-0.055,0.2-0.118,0.3-0.177c0.11-0.065,0.222-0.128,0.329-0.2
-		c0.112-0.075,0.217-0.158,0.324-0.239c0.088-0.066,0.179-0.127,0.264-0.198c0.192-0.157,0.376-0.323,0.551-0.499L255.5,142.106
-		l122.696,122.695c0.175,0.175,0.36,0.341,0.551,0.499c0.085,0.07,0.175,0.131,0.263,0.197c0.108,0.081,0.214,0.165,0.326,0.24
-		c0.106,0.071,0.217,0.133,0.326,0.198c0.101,0.061,0.199,0.124,0.303,0.179c0.112,0.06,0.227,0.111,0.342,0.165
-		c0.107,0.051,0.213,0.104,0.323,0.15c0.112,0.046,0.226,0.083,0.339,0.124c0.117,0.042,0.233,0.087,0.353,0.124
-		c0.114,0.035,0.23,0.06,0.345,0.089c0.122,0.031,0.242,0.065,0.366,0.089c0.132,0.026,0.265,0.042,0.398,0.061
-		c0.109,0.016,0.217,0.036,0.328,0.047c0.246,0.024,0.493,0.037,0.74,0.037H472v209H311V371.5c0-12.958-10.542-23.5-23.5-23.5h-64
-		c-12.958,0-23.5,10.542-23.5,23.5V476H39V267z M296,380h-81v-8.5c0-4.687,3.813-8.5,8.5-8.5h64c4.687,0,8.5,3.813,8.5,8.5V380z
-		 M215,395h33v81h-33V395z M263,395h33v81h-33V395z"
-                />
-                <path
-                  d="M255.5,323c30.603,0,55.5-24.897,55.5-55.5S286.103,212,255.5,212S200,236.897,200,267.5S224.897,323,255.5,323z
-		 M255.5,227c22.332,0,40.5,18.168,40.5,40.5S277.832,308,255.5,308S215,289.832,215,267.5S233.168,227,255.5,227z"
-                />
-                <path
-                  d="M255.5,275c4.142,0,7.5-3.358,7.5-7.5v-24c0-4.142-3.358-7.5-7.5-7.5s-7.5,3.358-7.5,7.5V260h-16.5
-		c-4.142,0-7.5,3.358-7.5,7.5s3.358,7.5,7.5,7.5H255.5z"
-                />
-                <path
-                  d="M175.5,388h-40c-4.142,0-7.5,3.358-7.5,7.5v48c0,4.142,3.358,7.5,7.5,7.5h40c4.142,0,7.5-3.358,7.5-7.5v-48
-		C183,391.358,179.642,388,175.5,388z M168,403v9h-25v-9H168z M143,436v-9h25v9H143z"
-                />
-                <path
-                  d="M103.5,388h-40c-4.142,0-7.5,3.358-7.5,7.5v48c0,4.142,3.358,7.5,7.5,7.5h40c4.142,0,7.5-3.358,7.5-7.5v-48
-		C111,391.358,107.642,388,103.5,388z M96,403v9H71v-9H96z M71,436v-9h25v9H71z"
-                />
-                <path
-                  d="M173,292h-35c-5.514,0-10,4.486-10,10v53.5c0,4.142,3.358,7.5,7.5,7.5h40c4.142,0,7.5-3.358,7.5-7.5V302
-		C183,296.486,178.514,292,173,292z M168,307v17h-25v-17H168z M143,348v-9h25v9H143z"
-                />
-                <path
-                  d="M101,292H66c-5.514,0-10,4.486-10,10v53.5c0,4.142,3.358,7.5,7.5,7.5h40c4.142,0,7.5-3.358,7.5-7.5V302
-		C111,296.486,106.514,292,101,292z M96,307v17H71v-17H96z M71,348v-9h25v9H71z"
-                />
-                <path
-                  d="M407.5,451h40c4.142,0,7.5-3.358,7.5-7.5v-48c0-4.142-3.358-7.5-7.5-7.5h-40c-4.142,0-7.5,3.358-7.5,7.5v48
-		C400,447.642,403.358,451,407.5,451z M415,436v-9h25v9H415z M440,403v9h-25v-9H440z"
-                />
-                <path
-                  d="M335.5,451h40c4.142,0,7.5-3.358,7.5-7.5v-48c0-4.142-3.358-7.5-7.5-7.5h-40c-4.142,0-7.5,3.358-7.5,7.5v48
-		C328,447.642,331.358,451,335.5,451z M343,436v-9h25v9H343z M368,403v9h-25v-9H368z"
-                />
-                <path
-                  d="M407.5,363h40c4.142,0,7.5-3.358,7.5-7.5V302c0-5.514-4.486-10-10-10h-35c-5.514,0-10,4.486-10,10v53.5
-		C400,359.642,403.358,363,407.5,363z M415,348v-9h25v9H415z M440,307v17h-25v-17H440z"
-                />
-                <path
-                  d="M335.5,363h40c4.142,0,7.5-3.358,7.5-7.5V302c0-5.514-4.486-10-10-10h-35c-5.514,0-10,4.486-10,10v53.5
-		C328,359.642,331.358,363,335.5,363z M343,348v-9h25v9H343z M368,307v17h-25v-17H368z"
-                />
-              </g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-            </svg>
-          </span>
-          <span class="accordion-text">
-            <strong>I Mokyklos lygmuo</strong> <br />
-            Šiame lygmenyje siekiama užtikrinti kokybišką, savalaikę, tiesioginę
-            pagalbą mokiniui, tėvams (globėjams, rūpintojams), kurią teikia
-            mokytojai, klasės vadovai, mokykloje dirbantys švietimo pagalbos
-            specialistai – logopedas, specialusis pedagogas, socialinis
-            pedagogas, psichologas, mokinio padėjėjai. Mokyklos direktorius ir
-            Vaiko gerovės komisija koordinuoja švietimo pagalbos teikimą.
-          </span>
-          <span class="accordion-indicator">
-            <svg
-              width="32"
-              height="32"
-              id="fi_2985150"
-              enable-background="new 0 0 128 128"
-              height="512"
-              viewBox="0 0 128 128"
-              width="512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                id="Down_Arrow_3_"
-                d="m64 88c-1.023 0-2.047-.391-2.828-1.172l-40-40c-1.563-1.563-1.563-4.094 0-5.656s4.094-1.563 5.656 0l37.172 37.172 37.172-37.172c1.563-1.563 4.094-1.563 5.656 0s1.563 4.094 0 5.656l-40 40c-.781.781-1.805 1.172-2.828 1.172z"
-              ></path>
-            </svg>
-          </span>
-        </button>
-        <div class="panel">
-          <div class="level-1">
-            <div class="level-indicator">I LYGMUO</div>
-
-            <div id="level-1-director" class="main-box modal-trigger" data-modal="direktorius">
-              MOKYKLOS DIREKTORIUS
-            </div>
-
-            <div id="level-1-section-box" class="section-box">
-              <div class="vaiku-geroves-box modal-trigger" data-modal="vgk">
-                <strong>VAIKO GEROVĖS KOMISIJA*</strong>
-              </div>
-              <div class="grid-container">
-                <div
-                  id="level-1-member-1"
-                  class="box modal-trigger"
-                  data-modal="psichologas"
-                >
-                  Psichologas*
-                </div>
-                <div
-                  id="level-1-member-2"
-                  class="box modal-trigger"
-                  data-modal="specPedagogas"
-                >
-                  Specialusis pedagogas*
-                </div>
-                <div
-                  id="level-1-member-3"
-                  class="box modal-trigger"
-                  data-modal="specPedagogas"
-                >
-                  Logopedas*
-                </div>
-                <div
-                  id="level-1-member-4"
-                  class="box modal-trigger"
-                  data-modal="socPedagogas"
-                >
-                  Socialinis pedagogas*
-                </div>
-                <div
-                  id="level-1-member-5"
-                  class="box modal-trigger"
-                  data-modal="padejejas"
-                >
-                  Mokinio padėjėjas*
-                </div>
-                <div id="level-1-member-6" class="box box-green">
-                  Visuomenės sveikatos specialistas
-                </div>
-              </div>
-            </div>
-
-            <div class="grid-container-2">
-              <div id="level-1-parent" class="box box-purple first">
-                Mokinio tėvai
-              </div>
-              <div id="level-1-child" class="box box-purple second">
-                Mokinys, patiriantis sunkumų
-              </div>
-            </div>
-
-            <div class="grid-container-3">
-              <div id="level-1-teacher" class="box box-school">Mokytojai</div>
-              <div id="level-1-class" class="box box-school">
-                Klasės vadovas
-              </div>
-              <div id="level-1-responsible" class="box box-school">
-                Atsakingas asmuo
-              </div>
-            </div>
-          </div>
-          <p class="diagram-hint" style="padding-top: 1rem">
-            *Galite paspausti ant elementų pažymėtų žvaigždute tam, kad
-            atidarytumėte daugiau informacijos.
           </p>
-        </div>
-
-        <button class="accordion accordion-level-2">
-          <span class="accordion-icon">
-            <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-            <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg" id="fi_6679663" data-name="Layer 1" viewBox="0 0 64 64" width="512" height="512"><path d="M24,43v9a1,1,0,0,0,1,1H39a1,1,0,0,0,1-1V43a5.006,5.006,0,0,0-5-5h-.031a5,5,0,1,0-5.938,0H29A5.006,5.006,0,0,0,24,43Zm5-9a3,3,0,1,1,3,3A3,3,0,0,1,29,34Zm6,6a3,3,0,0,1,3,3v8H26V43a3,3,0,0,1,3-3Z"></path><path d="M52,37V31a3.992,3.992,0,0,0-3.449-3.944,4,4,0,1,0-5.1,0A3.992,3.992,0,0,0,40,31v6a1,1,0,0,0,1,1H51A1,1,0,0,0,52,37ZM46,22a2,2,0,1,1-2,2A2,2,0,0,1,46,22Zm4,14H42V31a2,2,0,0,1,2-2h4a2,2,0,0,1,2,2Z"></path><path d="M18,20a3.983,3.983,0,0,0-2.551,7.056A3.992,3.992,0,0,0,12,31v6a1,1,0,0,0,1,1H23a1,1,0,0,0,1-1V31a3.992,3.992,0,0,0-3.449-3.944A3.983,3.983,0,0,0,18,20Zm0,2a2,2,0,1,1-2,2A2,2,0,0,1,18,22Zm4,9v5H14V31a2,2,0,0,1,2-2h4A2,2,0,0,1,22,31Z"></path><path d="M27,20.4V25a1,1,0,0,0,1,1h8a1,1,0,0,0,1-1V20.4a3.4,3.4,0,0,0-2.662-3.314,3.5,3.5,0,1,0-4.676,0A3.4,3.4,0,0,0,27,20.4ZM32,13a1.5,1.5,0,1,1-1.5,1.5A1.5,1.5,0,0,1,32,13Zm-3,7.4A1.4,1.4,0,0,1,30.4,19h3.2A1.4,1.4,0,0,1,35,20.4V24H29Z"></path><path d="M32,61A28.994,28.994,0,0,1,10.116,12.979l-.345,2.968,1.987.231.7-6.063a1,1,0,0,0-1.225-1.088L5.3,10.441l.463,1.946,2.794-.666A31,31,0,0,0,48.534,58.229l-1.068-1.692A28.913,28.913,0,0,1,32,61Z"></path><path d="M32,1A30.893,30.893,0,0,0,15.466,5.774l1.068,1.692a29,29,0,0,1,37.35,43.555l.345-2.968-1.987-.231-.7,6.063A1,1,0,0,0,52.531,55a1.014,1.014,0,0,0,.232-.027L58.7,53.559l-.463-1.946-2.794.666A31,31,0,0,0,32,1Z"></path></svg>
-          </span>
-          <span class="accordion-text">
-            <strong>II Savivaldybės įstaigų, teikiančių pagalbą, lygmuo</strong> <br />
-            Savivaldybės įstaigos, teikiančios pagalbą mokiniui, tėvams (globėjams, rūpintojams): Pedagoginė psichologinė tarnyba,  Visuomenės sveikatos biuras, šv. Faustinos ugdymo centras, Švietimo ir sporto centro  Neformaliojo švietimo centras, Vaclovo Giržado progimnazija, tarpinstitucinio bendradarbiavimo koordinatorius  konsultuoja mokyklas, vertina mokinių ugdymosi poreikius ir teikia specializuotą pagalbą. Šios įstaigos padeda spręsti sudėtingesnes situacijas, kurių neįmanoma išspręsti mokyklos viduje.
-          </span>
-          <span class="accordion-indicator">
-            <svg
-              width="32"
-              height="32"
-              id="fi_2985150"
-              enable-background="new 0 0 128 128"
-              height="512"
-              viewBox="0 0 128 128"
-              width="512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                id="Down_Arrow_3_"
-                d="m64 88c-1.023 0-2.047-.391-2.828-1.172l-40-40c-1.563-1.563-1.563-4.094 0-5.656s4.094-1.563 5.656 0l37.172 37.172 37.172-37.172c1.563-1.563 4.094-1.563 5.656 0s1.563 4.094 0 5.656l-40 40c-.781.781-1.805 1.172-2.828 1.172z"
-              ></path>
-            </svg>
-          </span>
-        </button>
-        <div class="panel">
-          <div class="level-2">
-            <div class="level-indicator">II LYGMUO</div>
-            <div class="grid-container">
-              <div class="box" data-id="biuras">
-                Kaišiadorių rajono savivaldybės visuomenės sveikatos biuras*
+        </header>
+        <div class="accordion-wrap">
+          <button class="accordion accordion-level-1">
+            <span class="accordion-icon">
+              <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+              <svg
+                width="64"
+                height="64"
+                version="1.1"
+                id="Capa_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                y="0px"
+                viewBox="0 0 511 511"
+                style="enable-background: new 0 0 511 511"
+                xml:space="preserve"
+              >
+                <g>
+                  <path
+                    d="M503.5,476H487V267h16.5c2.737,0,5.257-1.491,6.575-3.891c1.317-2.4,1.222-5.327-0.247-7.636l-56-88
+      c-1.377-2.164-3.763-3.474-6.328-3.474H298.606L263,128.394V99h72.5c2.766,0,5.308-1.522,6.613-3.961
+      c1.305-2.438,1.162-5.398-0.373-7.699L328.514,67.5l13.227-19.84c1.535-2.301,1.677-5.261,0.373-7.699
+      C340.808,37.522,338.266,36,335.5,36H263v-8.5c0-4.142-3.358-7.5-7.5-7.5s-7.5,3.358-7.5,7.5v100.894L212.394,164H63.5
+      c-2.564,0-4.951,1.31-6.328,3.474l-56,88c-1.469,2.309-1.564,5.236-0.247,7.636C2.243,265.509,4.763,267,7.5,267H24v209H7.5
+      c-4.142,0-7.5,3.358-7.5,7.5s3.358,7.5,7.5,7.5h496c4.142,0,7.5-3.358,7.5-7.5S507.642,476,503.5,476z M443.383,179l46.455,73
+      H386.606l-73-73H443.383z M321.486,51l-8.227,12.34c-1.68,2.519-1.68,5.801,0,8.32L321.486,84H263V51H321.486z M67.617,179h129.776
+      l-73,73H21.163L67.617,179z M39,267h88.498c0.248,0,0.496-0.013,0.744-0.038c0.106-0.01,0.21-0.03,0.315-0.045
+      c0.137-0.02,0.274-0.036,0.411-0.063c0.122-0.024,0.24-0.058,0.36-0.088c0.117-0.029,0.235-0.056,0.351-0.09
+      c0.118-0.036,0.233-0.081,0.349-0.122c0.115-0.041,0.23-0.079,0.344-0.126c0.109-0.045,0.213-0.098,0.319-0.148
+      c0.115-0.055,0.232-0.106,0.345-0.167c0.103-0.055,0.2-0.118,0.3-0.177c0.11-0.065,0.222-0.128,0.329-0.2
+      c0.112-0.075,0.217-0.158,0.324-0.239c0.088-0.066,0.179-0.127,0.264-0.198c0.192-0.157,0.376-0.323,0.551-0.499L255.5,142.106
+      l122.696,122.695c0.175,0.175,0.36,0.341,0.551,0.499c0.085,0.07,0.175,0.131,0.263,0.197c0.108,0.081,0.214,0.165,0.326,0.24
+      c0.106,0.071,0.217,0.133,0.326,0.198c0.101,0.061,0.199,0.124,0.303,0.179c0.112,0.06,0.227,0.111,0.342,0.165
+      c0.107,0.051,0.213,0.104,0.323,0.15c0.112,0.046,0.226,0.083,0.339,0.124c0.117,0.042,0.233,0.087,0.353,0.124
+      c0.114,0.035,0.23,0.06,0.345,0.089c0.122,0.031,0.242,0.065,0.366,0.089c0.132,0.026,0.265,0.042,0.398,0.061
+      c0.109,0.016,0.217,0.036,0.328,0.047c0.246,0.024,0.493,0.037,0.74,0.037H472v209H311V371.5c0-12.958-10.542-23.5-23.5-23.5h-64
+      c-12.958,0-23.5,10.542-23.5,23.5V476H39V267z M296,380h-81v-8.5c0-4.687,3.813-8.5,8.5-8.5h64c4.687,0,8.5,3.813,8.5,8.5V380z
+       M215,395h33v81h-33V395z M263,395h33v81h-33V395z"
+                  />
+                  <path
+                    d="M255.5,323c30.603,0,55.5-24.897,55.5-55.5S286.103,212,255.5,212S200,236.897,200,267.5S224.897,323,255.5,323z
+       M255.5,227c22.332,0,40.5,18.168,40.5,40.5S277.832,308,255.5,308S215,289.832,215,267.5S233.168,227,255.5,227z"
+                  />
+                  <path
+                    d="M255.5,275c4.142,0,7.5-3.358,7.5-7.5v-24c0-4.142-3.358-7.5-7.5-7.5s-7.5,3.358-7.5,7.5V260h-16.5
+      c-4.142,0-7.5,3.358-7.5,7.5s3.358,7.5,7.5,7.5H255.5z"
+                  />
+                  <path
+                    d="M175.5,388h-40c-4.142,0-7.5,3.358-7.5,7.5v48c0,4.142,3.358,7.5,7.5,7.5h40c4.142,0,7.5-3.358,7.5-7.5v-48
+      C183,391.358,179.642,388,175.5,388z M168,403v9h-25v-9H168z M143,436v-9h25v9H143z"
+                  />
+                  <path
+                    d="M103.5,388h-40c-4.142,0-7.5,3.358-7.5,7.5v48c0,4.142,3.358,7.5,7.5,7.5h40c4.142,0,7.5-3.358,7.5-7.5v-48
+      C111,391.358,107.642,388,103.5,388z M96,403v9H71v-9H96z M71,436v-9h25v9H71z"
+                  />
+                  <path
+                    d="M173,292h-35c-5.514,0-10,4.486-10,10v53.5c0,4.142,3.358,7.5,7.5,7.5h40c4.142,0,7.5-3.358,7.5-7.5V302
+      C183,296.486,178.514,292,173,292z M168,307v17h-25v-17H168z M143,348v-9h25v9H143z"
+                  />
+                  <path
+                    d="M101,292H66c-5.514,0-10,4.486-10,10v53.5c0,4.142,3.358,7.5,7.5,7.5h40c4.142,0,7.5-3.358,7.5-7.5V302
+      C111,296.486,106.514,292,101,292z M96,307v17H71v-17H96z M71,348v-9h25v9H71z"
+                  />
+                  <path
+                    d="M407.5,451h40c4.142,0,7.5-3.358,7.5-7.5v-48c0-4.142-3.358-7.5-7.5-7.5h-40c-4.142,0-7.5,3.358-7.5,7.5v48
+      C400,447.642,403.358,451,407.5,451z M415,436v-9h25v9H415z M440,403v9h-25v-9H440z"
+                  />
+                  <path
+                    d="M335.5,451h40c4.142,0,7.5-3.358,7.5-7.5v-48c0-4.142-3.358-7.5-7.5-7.5h-40c-4.142,0-7.5,3.358-7.5,7.5v48
+      C328,447.642,331.358,451,335.5,451z M343,436v-9h25v9H343z M368,403v9h-25v-9H368z"
+                  />
+                  <path
+                    d="M407.5,363h40c4.142,0,7.5-3.358,7.5-7.5V302c0-5.514-4.486-10-10-10h-35c-5.514,0-10,4.486-10,10v53.5
+      C400,359.642,403.358,363,407.5,363z M415,348v-9h25v9H415z M440,307v17h-25v-17H440z"
+                  />
+                  <path
+                    d="M335.5,363h40c4.142,0,7.5-3.358,7.5-7.5V302c0-5.514-4.486-10-10-10h-35c-5.514,0-10,4.486-10,10v53.5
+      C328,359.642,331.358,363,335.5,363z M343,348v-9h25v9H343z M368,307v17h-25v-17H368z"
+                  />
+                </g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+              </svg>
+            </span>
+            <span class="accordion-text">
+              <strong>I Mokyklos lygmuo</strong> <br />
+              Šiame lygmenyje siekiama užtikrinti kokybišką, savalaikę, tiesioginę
+              pagalbą mokiniui, tėvams (globėjams, rūpintojams), kurią teikia
+              mokytojai, klasės vadovai, mokykloje dirbantys švietimo pagalbos
+              specialistai – logopedas, specialusis pedagogas, socialinis
+              pedagogas, psichologas, mokinio padėjėjai. Mokyklos direktorius ir
+              Vaiko gerovės komisija koordinuoja švietimo pagalbos teikimą.
+            </span>
+            <span class="accordion-indicator">
+              <svg
+                width="32"
+                height="32"
+                id="fi_2985150"
+                enable-background="new 0 0 128 128"
+                height="512"
+                viewBox="0 0 128 128"
+                width="512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  id="Down_Arrow_3_"
+                  d="m64 88c-1.023 0-2.047-.391-2.828-1.172l-40-40c-1.563-1.563-1.563-4.094 0-5.656s4.094-1.563 5.656 0l37.172 37.172 37.172-37.172c1.563-1.563 4.094-1.563 5.656 0s1.563 4.094 0 5.656l-40 40c-.781.781-1.805 1.172-2.828 1.172z"
+                ></path>
+              </svg>
+            </span>
+          </button>
+          <div class="panel">
+            <div class="level-1">
+              <div class="level-indicator">I LYGMUO</div>
+  
+              <div id="level-1-director" class="main-box modal-trigger" data-modal="direktorius">
+                MOKYKLOS DIREKTORIUS*
               </div>
-              <div class="box" data-id="savivaldybe">
-                Kaišiadorių rajono savivaldybės administracijos Švietimo,
-                kultūros ir sporto skyriaus tarpinstitucinio bendradarbiavimo
-                koordinatorius*
+  
+              <div id="level-1-section-box" class="section-box">
+                <div class="vaiku-geroves-box modal-trigger" data-modal="vgk">
+                  <strong>VAIKO GEROVĖS KOMISIJA*</strong>
+                </div>
+                <div class="grid-container">
+                  <div
+                    id="level-1-member-1"
+                    class="box modal-trigger"
+                    data-modal="psichologas"
+                  >
+                    Psichologas*
+                  </div>
+                  <div
+                    id="level-1-member-2"
+                    class="box modal-trigger"
+                    data-modal="specPedagogas"
+                  >
+                    Specialusis pedagogas*
+                  </div>
+                  <div
+                    id="level-1-member-3"
+                    class="box modal-trigger"
+                    data-modal="specPedagogas"
+                  >
+                    Logopedas*
+                  </div>
+                  <div
+                    id="level-1-member-4"
+                    class="box modal-trigger"
+                    data-modal="socPedagogas"
+                  >
+                    Socialinis pedagogas*
+                  </div>
+                  <div
+                    id="level-1-member-5"
+                    class="box modal-trigger"
+                    data-modal="padejejas"
+                  >
+                    Mokinio padėjėjas*
+                  </div>
+                  <div id="level-1-member-6" class="box box-green">
+                    Visuomenės sveikatos specialistas
+                  </div>
+                </div>
               </div>
-              <div class="box" data-id="socialiniai">
-                Kaišiadorių socialinių paslaugų centras*
+  
+              <div class="grid-container-2">
+                <div id="level-1-parent" class="box box-purple first">
+                  Mokinio tėvai
+                </div>
+                <div id="level-1-child" class="box box-purple second">
+                  Mokinys, patiriantis sunkumų
+                </div>
               </div>
-              <div class="box" data-id="faustina">
-                Kaišiadorių šventosios Faustinų ugdymo centras*
-              </div>
-              <div class="box" data-id="ppt">
-                Kaišiadorių pedagoginė psichologinė tarnyba*
-              </div>
-              <div class="box" data-id="girzado">
-                Kaišiadorių Vaclovo Giržado progimnazija*
-              </div>
-              <div class="box" data-id="neformalus">
-                Kaišiadorių švietimo ir sporto centro Neformaliojo švietimo
-                skyrius*
+  
+              <div class="grid-container-3">
+                <div id="level-1-teacher" class="box box-school modal-trigger" data-modal="mokytojas">Mokytojas*</div>
+                <div id="level-1-class" class="box box-school modal-trigger" data-modal="klasesVadovas">
+                  Klasės vadovas*
+                </div>
+                <div id="level-1-responsible" class="box box-school modal-trigger" data-modal="atsakingas">
+                  Atsakingas asmuo*
+                </div>
               </div>
             </div>
+            <p class="diagram-hint" style="padding-top: 1rem">
+              *Galite paspausti ant elementų pažymėtų žvaigždute tam, kad
+              atidarytumėte daugiau informacijos.
+            </p>
           </div>
+  
+          <button class="accordion accordion-level-2">
+            <span class="accordion-icon">
+              <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+              <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg" id="fi_6679663" data-name="Layer 1" viewBox="0 0 64 64" width="512" height="512"><path d="M24,43v9a1,1,0,0,0,1,1H39a1,1,0,0,0,1-1V43a5.006,5.006,0,0,0-5-5h-.031a5,5,0,1,0-5.938,0H29A5.006,5.006,0,0,0,24,43Zm5-9a3,3,0,1,1,3,3A3,3,0,0,1,29,34Zm6,6a3,3,0,0,1,3,3v8H26V43a3,3,0,0,1,3-3Z"></path><path d="M52,37V31a3.992,3.992,0,0,0-3.449-3.944,4,4,0,1,0-5.1,0A3.992,3.992,0,0,0,40,31v6a1,1,0,0,0,1,1H51A1,1,0,0,0,52,37ZM46,22a2,2,0,1,1-2,2A2,2,0,0,1,46,22Zm4,14H42V31a2,2,0,0,1,2-2h4a2,2,0,0,1,2,2Z"></path><path d="M18,20a3.983,3.983,0,0,0-2.551,7.056A3.992,3.992,0,0,0,12,31v6a1,1,0,0,0,1,1H23a1,1,0,0,0,1-1V31a3.992,3.992,0,0,0-3.449-3.944A3.983,3.983,0,0,0,18,20Zm0,2a2,2,0,1,1-2,2A2,2,0,0,1,18,22Zm4,9v5H14V31a2,2,0,0,1,2-2h4A2,2,0,0,1,22,31Z"></path><path d="M27,20.4V25a1,1,0,0,0,1,1h8a1,1,0,0,0,1-1V20.4a3.4,3.4,0,0,0-2.662-3.314,3.5,3.5,0,1,0-4.676,0A3.4,3.4,0,0,0,27,20.4ZM32,13a1.5,1.5,0,1,1-1.5,1.5A1.5,1.5,0,0,1,32,13Zm-3,7.4A1.4,1.4,0,0,1,30.4,19h3.2A1.4,1.4,0,0,1,35,20.4V24H29Z"></path><path d="M32,61A28.994,28.994,0,0,1,10.116,12.979l-.345,2.968,1.987.231.7-6.063a1,1,0,0,0-1.225-1.088L5.3,10.441l.463,1.946,2.794-.666A31,31,0,0,0,48.534,58.229l-1.068-1.692A28.913,28.913,0,0,1,32,61Z"></path><path d="M32,1A30.893,30.893,0,0,0,15.466,5.774l1.068,1.692a29,29,0,0,1,37.35,43.555l.345-2.968-1.987-.231-.7,6.063A1,1,0,0,0,52.531,55a1.014,1.014,0,0,0,.232-.027L58.7,53.559l-.463-1.946-2.794.666A31,31,0,0,0,32,1Z"></path></svg>
+            </span>
+            <span class="accordion-text">
+              <strong>II Savivaldybės įstaigų, teikiančių pagalbą, lygmuo</strong> <br />
+              Savivaldybės įstaigos, teikiančios pagalbą mokiniui, tėvams (globėjams, rūpintojams): Pedagoginė psichologinė tarnyba,  Visuomenės sveikatos biuras, šv. Faustinos ugdymo centras, Švietimo ir sporto centro  Neformaliojo švietimo centras, Vaclovo Giržado progimnazija, tarpinstitucinio bendradarbiavimo koordinatorius  konsultuoja mokyklas, vertina mokinių ugdymosi poreikius ir teikia specializuotą pagalbą. Šios įstaigos padeda spręsti sudėtingesnes situacijas, kurių neįmanoma išspręsti mokyklos viduje.
+            </span>
+            <span class="accordion-indicator">
+              <svg
+                width="32"
+                height="32"
+                id="fi_2985150"
+                enable-background="new 0 0 128 128"
+                height="512"
+                viewBox="0 0 128 128"
+                width="512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  id="Down_Arrow_3_"
+                  d="m64 88c-1.023 0-2.047-.391-2.828-1.172l-40-40c-1.563-1.563-1.563-4.094 0-5.656s4.094-1.563 5.656 0l37.172 37.172 37.172-37.172c1.563-1.563 4.094-1.563 5.656 0s1.563 4.094 0 5.656l-40 40c-.781.781-1.805 1.172-2.828 1.172z"
+                ></path>
+              </svg>
+            </span>
+          </button>
+          <div class="panel">
+            <div class="level-2">
+              <div class="level-indicator">II LYGMUO</div>
+              <div class="grid-container">
+                <div class="box" data-id="biuras">
+                  Kaišiadorių rajono savivaldybės visuomenės sveikatos biuras*
+                </div>
+                <div class="box" data-id="savivaldybe">
+                  Kaišiadorių rajono savivaldybės administracijos Švietimo,
+                  kultūros ir sporto skyriaus tarpinstitucinio bendradarbiavimo
+                  koordinatorius*
+                </div>
+                <div class="box" data-id="socialiniai">
+                  Kaišiadorių socialinių paslaugų centras*
+                </div>
+                <div class="box" data-id="faustina">
+                  Kaišiadorių šventosios Faustinų ugdymo centras*
+                </div>
+                <div class="box" data-id="ppt">
+                  Kaišiadorių pedagoginė psichologinė tarnyba*
+                </div>
+                <div class="box" data-id="girzado">
+                  Kaišiadorių Vaclovo Giržado progimnazija*
+                </div>
+                <div class="box" data-id="neformalus">
+                  Kaišiadorių švietimo ir sporto centro Neformaliojo švietimo
+                  skyrius*
+                </div>
+              </div>
+            </div>
+            <p class="diagram-hint">
+              *Galite paspausti ant elementų pažymėtų žvaigždute tam, kad
+              atidarytumėte daugiau informacijos.
+            </p>
+          </div>
+  
+          <button class="accordion accordion-level-3">
+            <span class="accordion-icon">
+              <svg
+                width="64"
+                height="64"
+               viewBox="0 0 60 60" width="512" xmlns="http://www.w3.org/2000/svg" id="fi_3251378"><g id="Page-1" fill="none" fill-rule="evenodd"><g id="024---Government-Agreement" fill="rgb(0,0,0)" fill-rule="nonzero"><path id="Shape" d="m58 30h-6v-3.181c.4178057-.1425216.7970105-.3796957 1.108-.693.5739985-.5579289.8960613-1.3255361.892-2.126 0-1.6568542-1.3431458-3-3-3h-11v-4c.5522847 0 1-.4477153 1-1s-.4477153-1-1-1h-.065c-.519-4.2-4.255-7.534-8.935-7.954v-1.046h3c1.1045695 0 2-.8954305 2-2v-2c0-1.1045695-.8954305-2-2-2h-3c-1.1045695 0-2 .8954305-2 2v5.046c-4.68.42-8.416 3.756-8.935 7.954h-.065c-.5522847 0-1 .4477153-1 1s.4477153 1 1 1v4h-11c-1.65344336.0082058-2.99179417 1.3465566-3 3 .00525139 1.2667854.80564913 2.3937454 2 2.816v2.184h-6c-1.1045695 0-2 .8954305-2 2v15c0 1.1045695.8954305 2 2 2h10c1.0758343-.0031436 1.9564261-.856783 1.993-1.932.777653.0811389 1.544367.2454108 2.287.49-.5311335 1.1370751-.2910389 2.4852058.6 3.369.2706075.2702976.5907818.4858975.943.635-.6013221 1.027751-.5331076 2.3148112.1734826 3.2732425.7065903.9584314 1.9159037 1.4042322 3.0755174 1.1337575.1338932.498592.3951023.9538126.758 1.321.5244787.5226201 1.2253056.8304133 1.965.863.0587875 1.1819421.8086911 2.2181769 1.9130312 2.6434722s2.3555842.1597279 3.1919688-.6774722l.7-.7.691.69c.5595824.5713265 1.3262868.8922893 2.126.89 1.3446727-.0056619 2.5220137-.9036754 2.883-2.199.9956893.214493 2.0324962-.0861397 2.759-.8.369974-.3634067.6388147-.8169891.78-1.316.8875698.194762 1.8155833-.0232625 2.5235724-.5928798s1.1196452-1.429433 1.1194276-2.3381202c.00017-.2158062-.022625-.4310179-.068-.642.8198208-.2278296 1.5043299-.7930767 1.8831035-1.5550105s.4161765-1.6488712.1028965-2.4399895l2.083-.832c.3752824.4507683.9304689.7128076 1.517.716h10c1.1045695 0 2-.8954305 2-2v-14c0-1.1045695-.8954305-2-2-2zm-10 0c-1.1045695 0-2 .8954305-2 2v.725l-7-1.712v-4.013h11v3zm-14.661 6.032.32-.28c.4155942-.3639557.4574556-.9959057.0935-1.4115-.3639557-.4155942-.9959057-.4574556-1.4115-.0935l-1.119.98h-.006l-5.362 4.693c-.5436212.4591544-1.3265124.5000364-1.915.1-.3927678-.2741098-.6384987-.7128888-.667-1.191-.0301816-.4718749.1578013-.9315116.51-1.247l4.381-3.945.021-.019 1.628-1.465c.7402038-.6690054 1.7667868-.921801 2.733-.673l13.455 3.304v10.537l-2.868 1.146zm-5.59-13.279c.026-.022.055-.038.079-.062l2.156-1.691 5.116 4h-10.21zm-4.749 4.247h14v3.523l-3.972-.972c-1.6117108-.412872-3.3230642.0099904-4.557 1.126l-1.342 1.208-4.129-.259zm29-3c.0008733.2694422-.1099083.5272084-.306.712-.1823963.1865985-.4330776.2906276-.694.288h-12.655l-2.556-2h15.211c.5522847 0 1 .4477153 1 1zm-14.091-9h-3.934c-.0474641-1.9010744-.4370186-3.7780496-1.15-5.541 2.5905284.7621817 4.5470681 2.8945944 5.084 5.541zm-7.909-6c.536 0 1.786 2.1 1.974 6h-3.948c.188-3.9 1.438-6 1.974-6zm1-7h3v2h-3zm-3.825 7.459c-.7129814 1.7629504-1.1025359 3.6399256-1.15 5.541h-3.934c.5369319-2.6464056 2.4934716-4.7788183 5.084-5.541zm-5.175 7.541h16v4h-4.766l-2.018-1.58c-.7142915-.5590283-1.7177085-.5590283-2.432 0l-2.018 1.58h-4.766zm-13.694 6.288c.18239634-.1865985.43307757-.2906276.694-.288h15.211l-2.556 2h-12.655c-.55228475 0-1-.4477153-1-1-.00087326-.2694422.10990828-.5272084.306-.712zm1.694 3.712h11v4.5l-7-.439v-.061c0-1.1045695-.8954305-2-2-2h-2zm-8 19v-15h10v15zm18.414 1.806-.707.707c-.395481.3781625-1.018519.3781625-1.414 0-.3903819-.3904999-.3903819-1.0235001 0-1.414l.243-.243.008-.008.456-.456c.2510745-.2599566.6228779-.3642126.9725073-.2726972.3496295.0915155.6226744.3645604.7141899.7141899.0915154.3496294-.0127406.7214328-.2726972.9725073zm-.707 4.949c-.3903819-.3904999-.3903819-1.0235001 0-1.414l2.122-2.121c.2510745-.2599566.6228779-.3642126.9725073-.2726972.3496295.0915155.6226744.3645604.7141899.7141899.0915154.3496294-.0127406.7214328-.2726972.9725073l-2.122 2.121c-.395481.3781625-1.018519.3781625-1.414 0zm3.243 1.414c-.0007185-.2653486.1047939-.5199469.293-.707l.353-.353 1.061-1.06c.2497527-.2659578.624527-.3747909.9778857-.2839745.3533586.0908163.6292143.3668672.7197806.72029s-.0185319.72812-.2846663.9776845l-1.415 1.414c-.3951446.3780366-1.0178554.3780366-1.413 0-.1883716-.1872714-.2935875-.4423839-.292-.708zm3.121 3.536c-.3903819-.3904999-.3903819-1.0235001 0-1.414l1.414-1.415c.3907415-.3907414 1.0242585-.3907414 1.415 0 .3907414.3907415.3907414 1.0242585 0 1.415l-1.414 1.414c-.1875683.187777-.4420908.2932867-.7075.2932867s-.5199317-.1055097-.7075-.2932867zm16.242-7.774c-.385842.3842145-1.0081684.3891042-1.4.011l-.017-.016-3.636-3.632c-.3923789-.3789722-1.0160848-.3735524-1.4018186.0121814s-.3911536 1.0094397-.0121814 1.4018186l3.636 3.636.026.025.684.675c.187777.1875683.2932867.4420908.2932867.7075s-.1055097.5199317-.2932867.7075c-.1876085.1880834-.4423455.2937876-.708.2937876s-.5203915-.1057042-.708-.2937876l-.71-.71-3.493-3.493c-.3923789-.3789722-1.0160848-.3735524-1.4018186.0121814s-.3911536 1.0094397-.0121814 1.4018186l3.493 3.493c.192091.1882866.3002305.446019.3.715-.0010824.264331-.1093343.5169189-.3.7-.3938646.3806834-1.0193895.3780216-1.41-.006l-.71-.7-.495-.5c-.3921093-.3792591-1.0158267-.3742848-1.4018372.01118-.3860104.3854649-.391867 1.0091746-.0131628 1.40182l.5.5c.3877236.3900375.3877236 1.0199625 0 1.41-.1836085.189902-.4358582.2980091-.7.3-.2668279-.0002929-.5221928-.1084983-.708-.3l-.821-.821c.4419518-.9004391.4000634-1.963025-.1113996-2.8258794-.5114629-.8628543-1.4235361-1.4096321-2.4256004-1.4541206-.0549082-1.5331107-1.2924473-2.7592641-2.826-2.8-.0419277-1.5447133-1.2842867-2.7870723-2.829-2.829-.0270188-.7492765-.3359547-1.460722-.865-1.992-1.1716684-1.117156-3.0093539-1.1329076-4.2-.036-1.1604132-.4758618-2.386414-.7725837-3.636-.88v-10.992l7.979.5h.021.011l3.038.19-2.609 2.352c-1.4327814 1.3142101-1.546629 3.5347058-.2557699 4.9885605 1.2908592 1.4538546 3.5092224 1.6036098 4.9837699.3364395l4.665-4.083 10.48 11.167c.187777.1875683.2932867.4420908.2932867.7075s-.1055097.5199317-.2932867.7075zm5.687-3.931v-14h10v14z"></path></g></g></svg>
+            </span>
+            <span class="accordion-text">
+              <strong>III Savivaldybės lygmuo</strong> <br />
+              Savivaldybė atsakinga už sėkmingą įtraukiojo ugdymo diegimą visose savivaldybės švietimo įstaigose: kuria įtraukčiai palankią aplinką, koordinuoja pagalbos specialistų veiklą, vykdo priežiūrą ir teikia rekomendacijas mokykloms.
+            </span>
+            <span class="accordion-indicator">
+              <svg
+                width="32"
+                height="32"
+                id="fi_2985150"
+                enable-background="new 0 0 128 128"
+                height="512"
+                viewBox="0 0 128 128"
+                width="512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  id="Down_Arrow_3_"
+                  d="m64 88c-1.023 0-2.047-.391-2.828-1.172l-40-40c-1.563-1.563-1.563-4.094 0-5.656s4.094-1.563 5.656 0l37.172 37.172 37.172-37.172c1.563-1.563 4.094-1.563 5.656 0s1.563 4.094 0 5.656l-40 40c-.781.781-1.805 1.172-2.828 1.172z"
+                ></path>
+              </svg>
+            </span>
+          </button>
+          <div class="panel">
+            <div class="level-3">
+              <div class="level-indicator">III LYGMUO</div>
+              <div id="level-3-main-box" class="main-box trigger-lines" >
+                KAIŠIADORIŲ RAJONO SAVIVALDYBĖ*
+              </div>
+              <div id="box-to-display">
+
+                <div class="flex-container">
+                  <div id="level-3-box-1" class="box">
+                    <strong>FINANSAVIMAS</strong><br />
+                    <small
+                      >(aplinkos, pagalbos specialistai, mobilioji komanda)</small
+                    >
+                  </div>
+                  <div id="level-3-box-2" class="box">
+                    <strong>PAGALBA</strong><br />
+                    <small>(konsultavimas, priežiūra, rekomendacijos)</small>
+                  </div>
+                </div>
+                <div class="diagram-hint-contact">
+                  Kontaktinis asmuo - Švietimo, kultūros ir sporto skyriaus vedėjas, el. paštas <a href="mailto:lina.lukoseviciene@kaisiadorys.lt" >
+                    lina.lukoseviciene@kaisiadorys.lt
+                  </a>
+                </div>
+              </div>
+            </div>
           <p class="diagram-hint">
             *Galite paspausti ant elementų pažymėtų žvaigždute tam, kad
             atidarytumėte daugiau informacijos.
           </p>
-        </div>
-
-        <button class="accordion accordion-level-3">
-          <span class="accordion-icon">
-            <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-            <svg
-              width="64"
-              height="64"
-             viewBox="0 0 60 60" width="512" xmlns="http://www.w3.org/2000/svg" id="fi_3251378"><g id="Page-1" fill="none" fill-rule="evenodd"><g id="024---Government-Agreement" fill="rgb(0,0,0)" fill-rule="nonzero"><path id="Shape" d="m58 30h-6v-3.181c.4178057-.1425216.7970105-.3796957 1.108-.693.5739985-.5579289.8960613-1.3255361.892-2.126 0-1.6568542-1.3431458-3-3-3h-11v-4c.5522847 0 1-.4477153 1-1s-.4477153-1-1-1h-.065c-.519-4.2-4.255-7.534-8.935-7.954v-1.046h3c1.1045695 0 2-.8954305 2-2v-2c0-1.1045695-.8954305-2-2-2h-3c-1.1045695 0-2 .8954305-2 2v5.046c-4.68.42-8.416 3.756-8.935 7.954h-.065c-.5522847 0-1 .4477153-1 1s.4477153 1 1 1v4h-11c-1.65344336.0082058-2.99179417 1.3465566-3 3 .00525139 1.2667854.80564913 2.3937454 2 2.816v2.184h-6c-1.1045695 0-2 .8954305-2 2v15c0 1.1045695.8954305 2 2 2h10c1.0758343-.0031436 1.9564261-.856783 1.993-1.932.777653.0811389 1.544367.2454108 2.287.49-.5311335 1.1370751-.2910389 2.4852058.6 3.369.2706075.2702976.5907818.4858975.943.635-.6013221 1.027751-.5331076 2.3148112.1734826 3.2732425.7065903.9584314 1.9159037 1.4042322 3.0755174 1.1337575.1338932.498592.3951023.9538126.758 1.321.5244787.5226201 1.2253056.8304133 1.965.863.0587875 1.1819421.8086911 2.2181769 1.9130312 2.6434722s2.3555842.1597279 3.1919688-.6774722l.7-.7.691.69c.5595824.5713265 1.3262868.8922893 2.126.89 1.3446727-.0056619 2.5220137-.9036754 2.883-2.199.9956893.214493 2.0324962-.0861397 2.759-.8.369974-.3634067.6388147-.8169891.78-1.316.8875698.194762 1.8155833-.0232625 2.5235724-.5928798s1.1196452-1.429433 1.1194276-2.3381202c.00017-.2158062-.022625-.4310179-.068-.642.8198208-.2278296 1.5043299-.7930767 1.8831035-1.5550105s.4161765-1.6488712.1028965-2.4399895l2.083-.832c.3752824.4507683.9304689.7128076 1.517.716h10c1.1045695 0 2-.8954305 2-2v-14c0-1.1045695-.8954305-2-2-2zm-10 0c-1.1045695 0-2 .8954305-2 2v.725l-7-1.712v-4.013h11v3zm-14.661 6.032.32-.28c.4155942-.3639557.4574556-.9959057.0935-1.4115-.3639557-.4155942-.9959057-.4574556-1.4115-.0935l-1.119.98h-.006l-5.362 4.693c-.5436212.4591544-1.3265124.5000364-1.915.1-.3927678-.2741098-.6384987-.7128888-.667-1.191-.0301816-.4718749.1578013-.9315116.51-1.247l4.381-3.945.021-.019 1.628-1.465c.7402038-.6690054 1.7667868-.921801 2.733-.673l13.455 3.304v10.537l-2.868 1.146zm-5.59-13.279c.026-.022.055-.038.079-.062l2.156-1.691 5.116 4h-10.21zm-4.749 4.247h14v3.523l-3.972-.972c-1.6117108-.412872-3.3230642.0099904-4.557 1.126l-1.342 1.208-4.129-.259zm29-3c.0008733.2694422-.1099083.5272084-.306.712-.1823963.1865985-.4330776.2906276-.694.288h-12.655l-2.556-2h15.211c.5522847 0 1 .4477153 1 1zm-14.091-9h-3.934c-.0474641-1.9010744-.4370186-3.7780496-1.15-5.541 2.5905284.7621817 4.5470681 2.8945944 5.084 5.541zm-7.909-6c.536 0 1.786 2.1 1.974 6h-3.948c.188-3.9 1.438-6 1.974-6zm1-7h3v2h-3zm-3.825 7.459c-.7129814 1.7629504-1.1025359 3.6399256-1.15 5.541h-3.934c.5369319-2.6464056 2.4934716-4.7788183 5.084-5.541zm-5.175 7.541h16v4h-4.766l-2.018-1.58c-.7142915-.5590283-1.7177085-.5590283-2.432 0l-2.018 1.58h-4.766zm-13.694 6.288c.18239634-.1865985.43307757-.2906276.694-.288h15.211l-2.556 2h-12.655c-.55228475 0-1-.4477153-1-1-.00087326-.2694422.10990828-.5272084.306-.712zm1.694 3.712h11v4.5l-7-.439v-.061c0-1.1045695-.8954305-2-2-2h-2zm-8 19v-15h10v15zm18.414 1.806-.707.707c-.395481.3781625-1.018519.3781625-1.414 0-.3903819-.3904999-.3903819-1.0235001 0-1.414l.243-.243.008-.008.456-.456c.2510745-.2599566.6228779-.3642126.9725073-.2726972.3496295.0915155.6226744.3645604.7141899.7141899.0915154.3496294-.0127406.7214328-.2726972.9725073zm-.707 4.949c-.3903819-.3904999-.3903819-1.0235001 0-1.414l2.122-2.121c.2510745-.2599566.6228779-.3642126.9725073-.2726972.3496295.0915155.6226744.3645604.7141899.7141899.0915154.3496294-.0127406.7214328-.2726972.9725073l-2.122 2.121c-.395481.3781625-1.018519.3781625-1.414 0zm3.243 1.414c-.0007185-.2653486.1047939-.5199469.293-.707l.353-.353 1.061-1.06c.2497527-.2659578.624527-.3747909.9778857-.2839745.3533586.0908163.6292143.3668672.7197806.72029s-.0185319.72812-.2846663.9776845l-1.415 1.414c-.3951446.3780366-1.0178554.3780366-1.413 0-.1883716-.1872714-.2935875-.4423839-.292-.708zm3.121 3.536c-.3903819-.3904999-.3903819-1.0235001 0-1.414l1.414-1.415c.3907415-.3907414 1.0242585-.3907414 1.415 0 .3907414.3907415.3907414 1.0242585 0 1.415l-1.414 1.414c-.1875683.187777-.4420908.2932867-.7075.2932867s-.5199317-.1055097-.7075-.2932867zm16.242-7.774c-.385842.3842145-1.0081684.3891042-1.4.011l-.017-.016-3.636-3.632c-.3923789-.3789722-1.0160848-.3735524-1.4018186.0121814s-.3911536 1.0094397-.0121814 1.4018186l3.636 3.636.026.025.684.675c.187777.1875683.2932867.4420908.2932867.7075s-.1055097.5199317-.2932867.7075c-.1876085.1880834-.4423455.2937876-.708.2937876s-.5203915-.1057042-.708-.2937876l-.71-.71-3.493-3.493c-.3923789-.3789722-1.0160848-.3735524-1.4018186.0121814s-.3911536 1.0094397-.0121814 1.4018186l3.493 3.493c.192091.1882866.3002305.446019.3.715-.0010824.264331-.1093343.5169189-.3.7-.3938646.3806834-1.0193895.3780216-1.41-.006l-.71-.7-.495-.5c-.3921093-.3792591-1.0158267-.3742848-1.4018372.01118-.3860104.3854649-.391867 1.0091746-.0131628 1.40182l.5.5c.3877236.3900375.3877236 1.0199625 0 1.41-.1836085.189902-.4358582.2980091-.7.3-.2668279-.0002929-.5221928-.1084983-.708-.3l-.821-.821c.4419518-.9004391.4000634-1.963025-.1113996-2.8258794-.5114629-.8628543-1.4235361-1.4096321-2.4256004-1.4541206-.0549082-1.5331107-1.2924473-2.7592641-2.826-2.8-.0419277-1.5447133-1.2842867-2.7870723-2.829-2.829-.0270188-.7492765-.3359547-1.460722-.865-1.992-1.1716684-1.117156-3.0093539-1.1329076-4.2-.036-1.1604132-.4758618-2.386414-.7725837-3.636-.88v-10.992l7.979.5h.021.011l3.038.19-2.609 2.352c-1.4327814 1.3142101-1.546629 3.5347058-.2557699 4.9885605 1.2908592 1.4538546 3.5092224 1.6036098 4.9837699.3364395l4.665-4.083 10.48 11.167c.187777.1875683.2932867.4420908.2932867.7075s-.1055097.5199317-.2932867.7075zm5.687-3.931v-14h10v14z"></path></g></g></svg>
-          </span>
-          <span class="accordion-text">
-            <strong>III Savivaldybės lygmuo</strong> <br />
-            Savivaldybė atsakinga už sėkmingą įtraukiojo ugdymo diegimą visose savivaldybės švietimo įstaigose: kuria įtraukčiai palankią aplinką, koordinuoja pagalbos specialistų veiklą, vykdo priežiūrą ir teikia rekomendacijas mokykloms.
-          </span>
-          <span class="accordion-indicator">
-            <svg
-              width="32"
-              height="32"
-              id="fi_2985150"
-              enable-background="new 0 0 128 128"
-              height="512"
-              viewBox="0 0 128 128"
-              width="512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                id="Down_Arrow_3_"
-                d="m64 88c-1.023 0-2.047-.391-2.828-1.172l-40-40c-1.563-1.563-1.563-4.094 0-5.656s4.094-1.563 5.656 0l37.172 37.172 37.172-37.172c1.563-1.563 4.094-1.563 5.656 0s1.563 4.094 0 5.656l-40 40c-.781.781-1.805 1.172-2.828 1.172z"
-              ></path>
-            </svg>
-          </span>
-        </button>
-        <div class="panel">
-          <div class="level-3">
-            <div class="level-indicator">III LYGMUO</div>
-            <div id="level-3-main-box" class="main-box">
-              KAIŠIADORIŲ RAJONO<br />SAVIVALDYBĖ
-            </div>
-            <div class="flex-container">
-              <div id="level-3-box-1" class="box">
-                <strong>FINANSAVIMAS</strong><br />
-                <small
-                  >(aplinkos, pagalbos specialistai, mobilioji komanda)</small
-                >
-              </div>
-              <div id="level-3-box-2" class="box">
-                <strong>PAGALBA</strong><br />
-                <small>(konsultavimas, priežiūra, rekomendacijos)</small>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -377,9 +1007,11 @@
     </footer>
     <!-- Levels -->
   </body>
+
   <script src="https://cdn.jsdelivr.net/npm/leader-line"></script>
   <script>
-    const modalContents={ppt:`
+    const modalContents = {
+  ppt: `
     <h3 style="margin-top: 1.5rem; font-size: 1.2rem; color: #333; margin-bottom: 2rem; text-align: center;">
       KAIŠIADORIŲ PEDAGOGINĖ PSICHOLOGINĖ TARNYBA
     </h3>
@@ -420,7 +1052,9 @@
       <li style="margin-bottom: 0.4rem;">Pataria mokyklų Vaiko gerovės komisijų nariams dėl švietimo pagalbos teikimo galimybių, kai mokykloje nėra reikiamų švietimo pagalbos specialistų.</li>
       <li style="margin-bottom: 0.4rem;">Veda ankstyvosios intervencijos programos užsiėmimus nepilnamečiams asmenims nuo 12 metų, kurie eksperimentuoja ar nereguliariai vartoja psichoaktyviąsias medžiagas.</li>
     </ul>
-  `,faustina:`
+  `,
+
+  faustina: `
     <h3 style="margin-top: 1.5rem; font-size: 1.2rem; color: #333; margin-bottom: 2rem; text-align: center;">
       KAIŠIADORIŲ ŠV. FAUSTINOS UGDYMO CENTRAS
     </h3>
@@ -447,7 +1081,8 @@
 
     <h3 style="margin-top: 1.5rem; font-size: 1.2rem; color: #333;">Papildomos funkcijos</h3>
     <p>Organizuoja su konkrečiu konsultuojamu atveju susijusius mokymus.</p>
-  `,savivaldybe:`
+  `,
+  savivaldybe: `
     <h3 style="margin-top: 1.5rem; font-size: 1.2rem; color: #333; margin-bottom: 2rem; text-align: center;">
       KAIŠIADORIŲ RAJONO SAVIVALDYBĖS ADMINISTRACIJOS TARPINSTITUCINIO BENDRADARBIAVIMO KOORDINATORIUS
     </h3>
@@ -478,7 +1113,8 @@
 
     <h3 style="margin-top: 1.5rem; font-size: 1.2rem; color: #333;">Papildomos funkcijos</h3>
     <p>Organizuoja mokymus švietimo pagalbos specialistams, ugdymo įstaigų vaiko gerovės komisijų nariams apie pagalbos / paslaugų organizavimą: nuo poreikių įvertinimo iki pagalbos plano sudarymo bei stebėsenos.</p>
-  `,girzado:`
+  `,
+  girzado: `
   <h3 style="margin-top: 1.5rem; font-size: 1.2rem; color: #333; margin-bottom: 2rem; text-align: center;">
     KAIŠIADORIŲ VACLOVO GIRŽADO PROGIMNAZIJA
   </h3>
@@ -510,7 +1146,8 @@
       </ul>
     </li>
   </ul>
-`,neformalus:`
+`,
+  neformalus: `
   <h3 style="margin-top: 1.5rem; font-size: 1.2rem; color: #333; margin-bottom: 2rem; text-align: center;">
     KAIŠIADORIŲ ŠVIETIMO IR SPORTO CENTRO NEFORMALIOJO ŠVIETIMO SKYRIUS
   </h3>
@@ -536,7 +1173,8 @@
 
   <h3 style="margin-top: 1.5rem; font-size: 1.2rem; color: #333;">Papildomos funkcijos</h3>
   <p>Organizuoja renginius, kuriuose sudaromos sąlygos mokiniams pademonstruoti savo gebėjimus.</p>
-`,biuras:`
+`,
+  biuras: `
   <h3 style="margin-top: 1.5rem; font-size: 1.2rem; color: #333; margin-bottom: 2rem; text-align: center;">
     KAIŠIADORIŲ VISUOMENĖS SVEIKATOS BIURAS
   </h3>
@@ -564,7 +1202,8 @@
       </ul>
     </li>
   </ul>
-`,socialiniai:`
+`,
+  socialiniai: `
   <h3 style="margin-top: 1.5rem; font-size: 1.2rem; color: #333; margin-bottom: 2rem; text-align: center;">
     KAIŠIADORIŲ SOCIALINIŲ PASLAUGŲ CENTRAS
   </h3>
@@ -586,7 +1225,8 @@
       Socialinės priežiūros šeimoms paslaugas socialinę riziką patiriančioms šeimoms ir jų vaikams, taikomas atvejo vadybos procesas. Teikiamos bendravimo, bendradarbiavimo, sprendimų priėmimo įgūdžių ugdymo, motyvavimo siekti teigiamų pokyčių šeimos gyvenime, kitų pagalbos priemonių pagal šeimos narių poreikius (psichosocialinės ar intensyvios krizių įveikimo pagalbos, psichologinio konsultavimo, vaikų dienos socialinės priežiūros, piniginės paramos, užimtumo, sveikatos priežiūros, švietimo, socialinio būsto, kitų priemonių, padedančių patenkinti individualius pagalbos poreikius, ir kt.) organizavimo, pagalbos šeimos nariams prižiūrint mažamečius vaikus ir vaikus su negalia, užtikrinant jų saugumą, įgūdžių ugdymą ir poreikių tenkinimą pagal vaiko amžių, kitų specialistų (psichologo, dietologo, gydytojo, kineziterapeuto ir kt.) pagal poreikius teikiamų paslaugų organizavimo paslaugos.
     </li>
   </ul>
-`,vgk:`
+`,
+  vgk: `
   <h3 style="margin-top: 1.2rem; font-size: 1.2rem; color: #333; margin-bottom: 1rem;">VAIKO GEROVĖS KOMISIJOS PAGRINDINĖS FUNKCIJOS:</h3>
   <ol style="padding-left: 1.2rem; margin-bottom: 1rem;">
     <li style="margin-bottom: 0.4rem;">Vaiko teisių apsauga: vykdo Vaiko minimalios ir vidutinės priežiūros įstatyme numatytas funkcijas.</li>
@@ -598,7 +1238,8 @@
     <li style="margin-bottom: 0.4rem;">Priežiūros priemonių inicijavimas: siūlo minimalios priežiūros priemonių skyrimą, keitimą ar nutraukimą.</li>
     <li style="margin-bottom: 0.4rem;">Reintegracijos užtikrinimas: organizuoja pagalbą vaikams po vidutinės priežiūros ar auklėjamojo poveikio priemonių taikymo, siekiant sklandaus jų grįžimo į ugdymo procesą.</li>
   </ol>
-`,specPedagogas:`
+`,
+  specPedagogas: `
     <h3 style="margin-top: 1.2rem; font-size: 1.2rem; color: #333; margin-bottom: 1rem;">SPECIALUSIS PEDAGOGAS IR LOGOPEDAS:</h3>
     <ul style="padding-left: 1.2rem;">
       <li style="margin-bottom: 0.4rem;">Įvertina mokinio:
@@ -619,7 +1260,8 @@
         </ul>
       </li>
     </ul>
-`,padejejas:`
+`,
+  padejejas: `
   <h3 style="margin-top: 1.2rem; font-size: 1.2rem; color: #333; margin-bottom: 1rem;">MOKINIO PADĖJĖJAS:</h3>
   <ul style="padding-left: 1.2rem;">
     <li style="margin-bottom: 0.4rem;">Padeda mokiniui ar (ir) mokinių grupei:</li>
@@ -633,7 +1275,8 @@
       <li style="margin-bottom: 0.4rem;">integruotis į mokyklos bendruomenę, palaikyti draugystę su bendraamžiais, skatinti bendravimą ir bendradarbiavimą.</li>
     </ul>
   </ul>
-`,socPedagogas:`
+`,
+  socPedagogas: `
   <h3 style="margin-top: 1.2rem; font-size: 1.2rem; color: #333; margin-bottom: 1rem;">SOCIALINIS PEDAGOGAS:</h3>
   <ul style="padding-left: 1.2rem;">
     <li style="margin-bottom: 0.4rem;">socialiniu pedagoginiu aspektu vertina mokinių ugdymosi poreikius.</li>
@@ -646,7 +1289,8 @@
     <li style="margin-bottom: 0.4rem;">konsultuoja mokinius, mokinių tėvus (globėjus, rūpintojus) dėl socialinių pedagoginių problemų sprendimo;</li>
     <li style="margin-bottom: 0.4rem;">teikia socialinę pagalbą vaikams ir mokiniams.</li>
   </ul>
-`,psichologas:`
+`,
+  psichologas: `
   <h3 style="margin-top: 1.2rem; font-size: 1.2rem; color: #333; margin-bottom: 1rem;">PSICHOLOGAS:</h3>
   <ul style="padding-left: 1.2rem;">
     <li style="margin-bottom: 0.4rem;">atlieka mokinio pagalbos ir (ar) ugdymosi poreikių vertinimą;</li>
@@ -654,7 +1298,8 @@
     <li style="margin-bottom: 0.4rem;">šviečia mokinius, jų tėvus (globėjus, rūpintojus) vaiko raidos psichologijos, pedagoginės ir socialinės psichologijos, mokinių psichologinių problemų prevencijos klausimais;</li>
     <li style="margin-bottom: 0.4rem;">vykdo krizių intervenciją ir postvenciją.</li>
   </ul>
-`,direktorius:`
+`,
+  direktorius: `
   <h3 style="margin-top: 1.2rem; font-size: 1.2rem; color: #333; margin-bottom: 1rem;">MOKYKLOS DIREKTORIUS:</h3>
   <ul style="padding-left: 1.2rem;">
     <li style="margin-bottom: 0.4rem;">organizuojа mokyklos darbą, kad būtų įgyvendinti mokyklos tikslai ir atliekamos nustatytos funkcijos, aiškina mokyklos bendruomenės nariams valstybinę ir regioninę švietimo politiką;</li>
@@ -667,6 +1312,491 @@
     <li style="margin-bottom: 0.4rem;">bendradarbiauja su mokinių tėvais (globėjais, rūpintojais), pagalbą mokiniui, mokytojui ir mokyklai teikiančiomis įstaigomis, teritorinėmis policijos, socialinių paslaugų, sveikatos įstaigomis, vaiko teisių apsaugos tarnybomis ir kitomis institucijomis, dirbančiomis vaiko teisių apsaugos srityje;</li>
     <li style="margin-bottom: 0.4rem;">atsako už Lietuvos Respublikos švietimo įstatymo 26 straipsnyje nurodytos informacijos skelbimą, demokratinį švietimo įstaigos valdymą, užtikrina bendradarbiavimu grįstus santykius, Pedagogų etikos kodekso reikalavimų laikymąsi, skaidriai priimamus sprendimus, švietimo įstaigos bendruomenės narių informavimą, pedagoginio ir nepedagoginio personalo profesinį tobulėjimą, sveiką, saugią, užkertančią kelią bet kokioms smurto, prievartos apraiškoms ir žalingiems įpročiams aplinką;</li>
   </ul>
-`},LEVEL_3_MAIN="#ab3b15",LEVEL_1_MAIN="#3c4aad",LEVEL_1_SUB="#2196f3",LEVEL_1_ALT="#43a047",LEVEL_1_HIGHLIGHT="#7e57c2";let level3Lines=[],level1Lines=[];const deactivateLevel3=()=>{level3Lines.forEach(e=>e.remove()),level3Lines=[]},deactivateLevel1=()=>{level1Lines.forEach(e=>e.remove()),level1Lines=[]},activateLevel1=()=>{level1Lines.push(new LeaderLine(document.getElementById("level-1-section-box"),document.getElementById("level-1-director"),{color:"#2196f3",endPlug:"arrow",path:"straight",startSocket:"top",endSocket:"bottom"})),window.innerWidth>487?level1Lines.push(new LeaderLine(document.getElementById("level-1-child"),document.getElementById("level-1-section-box"),{color:LEVEL_1_HIGHLIGHT,endPlug:"arrow",path:"straight",startSocket:"top",endSocket:"bottom"})):level1Lines.push(new LeaderLine(document.getElementById("level-1-child"),document.getElementById("level-1-section-box"),{color:LEVEL_1_HIGHLIGHT,endPlug:"arrow",path:"grid",startSocket:"top",endSocket:"bottom"})),level1Lines.push(new LeaderLine(document.getElementById("level-1-parent"),document.getElementById("level-1-section-box"),{color:LEVEL_1_HIGHLIGHT,endPlug:"arrow",path:"grid",startSocket:"top",endSocket:"bottom",startPlug:"arrow1"})),level1Lines.push(new LeaderLine(document.getElementById("level-1-child"),document.getElementById("level-1-parent"),{color:LEVEL_1_HIGHLIGHT,endPlug:"arrow",path:"straight",startSocket:"left",endSocket:"right"})),window.innerWidth,level1Lines.push(new LeaderLine(document.getElementById("level-1-child"),document.getElementById("level-1-teacher"),{color:LEVEL_1_HIGHLIGHT,endPlug:"arrow",path:"grid",startSocket:"bottom",endSocket:"top"})),window.innerWidth>487?level1Lines.push(new LeaderLine(document.getElementById("level-1-child"),document.getElementById("level-1-class"),{color:LEVEL_1_HIGHLIGHT,endPlug:"arrow",path:"grid",startSocket:"bottom",endSocket:"top"})):level1Lines.push(new LeaderLine(document.getElementById("level-1-child"),document.getElementById("level-1-class"),{color:LEVEL_1_HIGHLIGHT,endPlug:"arrow",path:"grid",startSocket:"bottom",endSocket:"right"})),window.innerWidth>487?level1Lines.push(new LeaderLine(document.getElementById("level-1-child"),document.getElementById("level-1-responsible"),{color:LEVEL_1_HIGHLIGHT,endPlug:"arrow",path:"grid",startSocket:"bottom",endSocket:"top"})):level1Lines.push(new LeaderLine(document.getElementById("level-1-child"),document.getElementById("level-1-responsible"),{color:LEVEL_1_HIGHLIGHT,endPlug:"arrow",path:"grid",startSocket:"bottom",endSocket:"right"})),window.innerWidth>487?level1Lines.push(new LeaderLine(document.getElementById("level-1-teacher"),document.getElementById("level-1-class"),{color:LEVEL_1_MAIN,endPlug:"arrow",path:"direct",startSocket:"right",endSocket:"left",startPlug:"arrow1"})):level1Lines.push(new LeaderLine(document.getElementById("level-1-teacher"),document.getElementById("level-1-class"),{color:LEVEL_1_MAIN,endPlug:"arrow",path:"direct",startSocket:"bottom",endSocket:"top",startPlug:"arrow1"})),window.innerWidth>806?level1Lines.push(new LeaderLine(document.getElementById("level-1-class"),document.getElementById("level-1-responsible"),{color:LEVEL_1_MAIN,endPlug:"arrow",path:"direct",startSocket:"right",startPlug:"arrow1",endSocket:"left"})):window.innerWidth>487?level1Lines.push(new LeaderLine(document.getElementById("level-1-class"),document.getElementById("level-1-responsible"),{color:LEVEL_1_MAIN,endPlug:"arrow",path:"grid",startSocket:"bottom",startPlug:"arrow1",endSocket:"right"})):level1Lines.push(new LeaderLine(document.getElementById("level-1-class"),document.getElementById("level-1-responsible"),{color:LEVEL_1_MAIN,endPlug:"arrow",path:"direct",startSocket:"bottom",startPlug:"arrow1",endSocket:"top"}))},activateLevel3=()=>{level3Lines.push(new LeaderLine(document.getElementById("level-3-main-box"),document.getElementById("level-3-box-1"),{color:LEVEL_3_MAIN,endPlug:"arrow",path:"straight",startSocket:"bottom",endSocket:"top"})),level3Lines.push(new LeaderLine(document.getElementById("level-3-main-box"),document.getElementById("level-3-box-2"),{color:LEVEL_3_MAIN,endPlug:"arrow",path:"straight",startSocket:"bottom",endSocket:"top"})),window.innerWidth>600?level3Lines.push(new LeaderLine(document.getElementById("level-3-box-1"),document.getElementById("level-3-box-2"),{color:"#f48f1e",endPlug:"arrow",path:"straight",startSocket:"right",endSocket:"left",startPlug:"arrow1"})):level3Lines.push(new LeaderLine(document.getElementById("level-3-box-1"),document.getElementById("level-3-box-2"),{color:"#f48f1e",endPlug:"arrow",path:"grid",startSocket:"bottom",endSocket:"bottom",startPlug:"arrow1"}))};let scrollPosition=0;const modal=document.getElementById("modal"),modalText=document.getElementById("modal-text"),closeModal=document.getElementById("modal-close");function openModal(e){modalText.innerHTML=modalContents[e]||"<p>Turinys nerastas.</p>",modal.classList.remove("hidden"),scrollPosition=window.scrollY,document.body.style.top=`-${scrollPosition}px`,document.body.classList.add("modal-open"),document.body.style.position="fixed",document.body.style.width="100%"}function closeModalFunc(){modal.classList.add("hidden"),document.body.classList.remove("modal-open"),document.body.style.position="",document.body.style.top="",document.body.style.width="",window.scrollTo(0,scrollPosition)}closeModal.addEventListener("click",closeModalFunc),modal.querySelector(".modal-backdrop").addEventListener("click",closeModalFunc),document.querySelectorAll(".level-2 .box").forEach(e=>{e.addEventListener("click",()=>{let o=e.getAttribute("data-id");openModal(o)})}),document.querySelectorAll(".modal-trigger").forEach(e=>{e.addEventListener("click",()=>{let o=e.getAttribute("data-modal");openModal(o)})});let openLevels={level1:!1,level3:!1};const rerenderLevel3=()=>{openLevels.level3&&(deactivateLevel3(),setTimeout(()=>{activateLevel3()},500))};let acc=document.getElementsByClassName("accordion");for(let i=0;i<acc.length;i++)acc[i].addEventListener("click",function(){this.classList.toggle("active");let e=this.nextElementSibling,o=e.classList.contains("open");e.classList.toggle("open"),0===i&&(o?(deactivateLevel1(),openLevels.level1=!1):(activateLevel1(),openLevels.level1=!0),rerenderLevel3()),1===i&&setTimeout(()=>{rerenderLevel3()},500),2===i&&(o?(deactivateLevel3(),openLevels.level3=!1):(activateLevel3(),openLevels.level3=!0))});
+`,
+  klasesVadovas: `
+<h3 style="margin-top: 1.2rem; font-size: 1.2rem; color: #333; margin-bottom: 1rem;">KLASĖS VADOVAS:</h3>
+<ul style="padding-left: 1.2rem;">
+  <li style="margin-bottom: 0.4rem;">pripažįsta, kad kiekvienas mokinys yra unikalus, ir stengiasi prisitaikyti prie individualių mokinių poreikių, atsižvelgdamas į jų gebėjimus, interesus ir sunkumus;</li>
+  <li style="margin-bottom: 0.4rem;">rūpinasi mokinių emocine gerove – padeda jiems jaustis saugiai, skatina pasitikėjimą savimi, teikia emocinę pagalbą;</li>
+  <li style="margin-bottom: 0.4rem;">stebi mokinių mokymosi pažangą, padeda spręsti mokymosi sunkumus, inicijuoja švietimo pagalbos organizavimą;</li>
+  <li style="margin-bottom: 0.4rem;">kuria teigiamą klasės mikroklimatą – skatina draugiškus santykius tarp mokinių, padeda spręsti konfliktus, organizuoja socialinių įgūdžių ugdymo veiklas;</li>
+  <li style="margin-bottom: 0.4rem;">padeda mokiniams atpažinti savo stipriąsias puses, pomėgius, teikia konsultacijas dėl mokymosi galimybių ir karjeros planavimo;</li>
+  <li style="margin-bottom: 0.4rem;">palaiko glaudų ryšį su mokinių tėvais – informuoja apie mokinių elgesį, savijautą, pasiekimus, pažangą, pamokų lankomumą, įtraukia tėvus į klasės ir mokyklos veiklas;</li>
+  <li style="margin-bottom: 0.4rem;">bendradarbiauja su dalykiniais mokytojais ir švietimo pagalbos specialistais, spręsdamas mokinių ugdymo ir pagalbos teikimo klausimus.</li>
+</ul>`,
+  mokytojas: `
+<h3 style="margin-top: 1.2rem; font-size: 1.2rem; color: #333; margin-bottom: 1rem;">MOKYTOJAS:</h3>
+<ul style="padding-left: 1.2rem;">
+  <li style="margin-bottom: 0.4rem;">ugdo mokinius, atsižvelgdamas į jų gebėjimus ir polinkius, stiprina mokymosi motyvaciją ir pasitikėjimą savo jėgomis;</li>
+  <li style="margin-bottom: 0.4rem;">teikia pagalbą mokiniams, turintiems ugdymosi ar mokymosi sunkumų bei specialiųjų ugdymosi poreikių, pritaikydamas jiems dalyko programą, turinį ir mokymo metodus;</li>
+  <li style="margin-bottom: 0.4rem;">sistemingai ir nešališkai vertina mokinių mokymosi pasiekimus bei pažangą, teikia grįžtamąjį ryšį ir rekomendacijas tobulėjimui;</li>
+  <li style="margin-bottom: 0.4rem;">atsižvelgdamas į mokinių poreikius, taiko įvairius mokymo metodus ir priemones, siekdamas atitikti individualius mokinių gebėjimus;</li>
+  <li style="margin-bottom: 0.4rem;">skatina mokinių aktyvumą pamokose, naudodamasis įvairiomis metodikomis, kurios stiprina susidomėjimą mokomuoju dalyku;</li>
+  <li style="margin-bottom: 0.4rem;">bendradarbiauja su tėvais (globėjais, rūpintojais), informuoja juos apie mokinio ugdymo(si) poreikius, pasiekimus, pažangą ir elgesį;</li>
+  <li style="margin-bottom: 0.4rem;">kartu su kitais mokytojais ir švietimo pagalbos specialistais padeda mokiniams siekti mokymosi tikslų.</li>
+</ul>
+`,
+  atsakingas: `
+<h3 style="margin-top: 1.2rem; font-size: 1.2rem; color: #333; margin-bottom: 1rem;">ATSAKINGAS ASMUO (MOKYTOJAS ARBA MOKYTOJO PADĖJĖJAS):</h3>
+<ul style="padding-left: 1.2rem;">
+  <li style="margin-bottom: 0.4rem;">teikia tiesioginę pagalbą pamokose ir kitose ugdymo veiklose, padeda mokytojui taikyti įtraukiojo ugdymo principus, reaguoja į mokinių poreikius vietoje, realiuoju laiku („čia ir dabar“);</li>
+  <li style="margin-bottom: 0.4rem;">padeda mokytojams pritaikyti ugdymo turinį ir metodus skirtingų gebėjimų mokiniams;</li>
+  <li style="margin-bottom: 0.4rem;">bendradarbiauja su švietimo pagalbos specialistais (logopedu, specialiuoju pedagogu, psichologu ir kt.), informuoja apie mokinių poreikius ir prisideda prie pagalbos teikimo;</li>
+  <li style="margin-bottom: 0.4rem;">padeda užtikrinti, kad klasėje būtų naudojamos tinkamos priemonės ir metodai, padedantys visiems mokiniams įsitraukti į ugdymo procesą;</li>
+  <li style="margin-bottom: 0.4rem;">dalijasi pastebėjimais su mokytojais apie mokinių elgesį, emocinę savijautą, ugdymosi sunkumus, padeda rasti sprendimus;</li>
+  <li style="margin-bottom: 0.4rem;">padeda organizuoti veiklas, kurios skatina bendradarbiavimą, toleranciją, socialinius įgūdžius;</li>
+  <li style="margin-bottom: 0.4rem;">prireikus teikia pagalbą sprendžiant sudėtingas situacijas pamokoje (pvz., netinkamas elgesys, emociniai sunkumai), informuoja atsakingus asmenis ir padeda užtikrinti mokinių gerovę.</li>
+</ul>`,
+};
+
+const LEVEL_3_MAIN = "#eb820c";
+const LEVEL_1_MAIN = "#3c4aad";
+const LEVEL_1_SUB = "#2196f3";
+const LEVEL_1_ALT = "#43a047";
+const LEVEL_1_HIGHLIGHT = "#7e57c2";
+
+let level3Lines = [];
+let level1Lines = [];
+
+const deactivateLevel3 = () => {
+  level3Lines.forEach((line) => line.remove());
+  level3Lines = [];
+
+};
+const deactivateLevel1 = () => {
+  level1Lines.forEach((line) => line.remove());
+  level1Lines = [];
+};
+
+const activateLevel1 = () => {
+  level1Lines.push(
+    new LeaderLine(
+      document.getElementById("level-1-section-box"),
+      document.getElementById("level-1-director"),
+      {
+        color: LEVEL_1_SUB,
+        endPlug: "arrow",
+        path: "straight",
+        startSocket: "top",
+        endSocket: "bottom",
+      }
+    )
+  );
+
+  if (window.innerWidth > 487) {
+    level1Lines.push(
+      new LeaderLine(
+        document.getElementById("level-1-child"),
+        document.getElementById("level-1-section-box"),
+        {
+          color: LEVEL_1_HIGHLIGHT,
+          endPlug: "arrow",
+          path: "straight",
+          startSocket: "top",
+          endSocket: "bottom",
+        }
+      )
+    );
+  } else {
+    level1Lines.push(
+      new LeaderLine(
+        document.getElementById("level-1-child"),
+        document.getElementById("level-1-section-box"),
+        {
+          color: LEVEL_1_HIGHLIGHT,
+          endPlug: "arrow",
+          path: "grid",
+          startSocket: "top",
+          endSocket: "bottom",
+        }
+      )
+    );
+  }
+  level1Lines.push(
+    new LeaderLine(
+      document.getElementById("level-1-parent"),
+      document.getElementById("level-1-section-box"),
+      {
+        color: LEVEL_1_HIGHLIGHT,
+        endPlug: "arrow",
+        path: "grid",
+        startSocket: "top",
+        endSocket: "bottom",
+        startPlug: "arrow1",
+      }
+    )
+  );
+
+  level1Lines.push(
+    new LeaderLine(
+      document.getElementById("level-1-child"),
+      document.getElementById("level-1-parent"),
+      {
+        color: LEVEL_1_HIGHLIGHT,
+        endPlug: "arrow",
+        path: "straight",
+        startSocket: "left",
+        endSocket: "right",
+      }
+    )
+  );
+  if (window.innerWidth > 487) {
+    level1Lines.push(
+      new LeaderLine(
+        document.getElementById("level-1-child"),
+        document.getElementById("level-1-teacher"),
+        {
+          color: LEVEL_1_HIGHLIGHT,
+          endPlug: "arrow",
+          path: "grid",
+          startSocket: "bottom",
+          endSocket: "top",
+        }
+      )
+    );
+  } else {
+    level1Lines.push(
+      new LeaderLine(
+        document.getElementById("level-1-child"),
+        document.getElementById("level-1-teacher"),
+        {
+          color: LEVEL_1_HIGHLIGHT,
+          endPlug: "arrow",
+          path: "grid",
+          startSocket: "bottom",
+          endSocket: "top",
+        }
+      )
+    );
+  }
+  if (window.innerWidth > 487) {
+    level1Lines.push(
+      new LeaderLine(
+        document.getElementById("level-1-child"),
+        document.getElementById("level-1-class"),
+        {
+          color: LEVEL_1_HIGHLIGHT,
+          endPlug: "arrow",
+          path: "grid",
+          startSocket: "bottom",
+          endSocket: "top",
+        }
+      )
+    );
+  } else {
+    level1Lines.push(
+      new LeaderLine(
+        document.getElementById("level-1-child"),
+        document.getElementById("level-1-class"),
+        {
+          color: LEVEL_1_HIGHLIGHT,
+          endPlug: "arrow",
+          path: "grid",
+          startSocket: "bottom",
+          endSocket: "right",
+        }
+      )
+    );
+  }
+  if (window.innerWidth > 487) {
+    level1Lines.push(
+      new LeaderLine(
+        document.getElementById("level-1-child"),
+        document.getElementById("level-1-responsible"),
+        {
+          color: LEVEL_1_HIGHLIGHT,
+          endPlug: "arrow",
+          path: "grid",
+          startSocket: "bottom",
+          endSocket: "top",
+        }
+      )
+    );
+  } else {
+    level1Lines.push(
+      new LeaderLine(
+        document.getElementById("level-1-child"),
+        document.getElementById("level-1-responsible"),
+        {
+          color: LEVEL_1_HIGHLIGHT,
+          endPlug: "arrow",
+          path: "grid",
+          startSocket: "bottom",
+          endSocket: "right",
+        }
+      )
+    );
+  }
+  if (window.innerWidth > 487) {
+    level1Lines.push(
+      new LeaderLine(
+        document.getElementById("level-1-teacher"),
+        document.getElementById("level-1-class"),
+        {
+          color: LEVEL_1_MAIN,
+          endPlug: "arrow",
+          path: "direct",
+          startSocket: "right",
+          endSocket: "left",
+          startPlug: "arrow1",
+        }
+      )
+    );
+  } else {
+    level1Lines.push(
+      new LeaderLine(
+        document.getElementById("level-1-teacher"),
+        document.getElementById("level-1-class"),
+        {
+          color: LEVEL_1_MAIN,
+          endPlug: "arrow",
+          path: "direct",
+          startSocket: "bottom",
+          endSocket: "top",
+          startPlug: "arrow1",
+        }
+      )
+    );
+  }
+  if (window.innerWidth > 806) {
+    level1Lines.push(
+      new LeaderLine(
+        document.getElementById("level-1-class"),
+        document.getElementById("level-1-responsible"),
+        {
+          color: LEVEL_1_MAIN,
+          endPlug: "arrow",
+          path: "direct",
+          startSocket: "right",
+          startPlug: "arrow1",
+          endSocket: "left",
+        }
+      )
+    );
+  } else {
+    if (window.innerWidth > 487) {
+      level1Lines.push(
+        new LeaderLine(
+          document.getElementById("level-1-class"),
+          document.getElementById("level-1-responsible"),
+          {
+            color: LEVEL_1_MAIN,
+            endPlug: "arrow",
+            path: "grid",
+            startSocket: "bottom",
+            startPlug: "arrow1",
+            endSocket: "right",
+          }
+        )
+      );
+    } else {
+      level1Lines.push(
+        new LeaderLine(
+          document.getElementById("level-1-class"),
+          document.getElementById("level-1-responsible"),
+          {
+            color: LEVEL_1_MAIN,
+            endPlug: "arrow",
+            path: "direct",
+            startSocket: "bottom",
+            startPlug: "arrow1",
+            endSocket: "top",
+          }
+        )
+      );
+    }
+  }
+};
+const activateLevel3 = () => {
+  level3Lines.push(
+    new LeaderLine(
+      document.getElementById("level-3-main-box"),
+      document.getElementById("level-3-box-1"),
+      {
+        color: LEVEL_3_MAIN,
+        endPlug: "arrow",
+        path: "straight",
+        startSocket: "bottom",
+        endSocket: "top",
+      }
+    )
+  );
+
+  level3Lines.push(
+    new LeaderLine(
+      document.getElementById("level-3-main-box"),
+      document.getElementById("level-3-box-2"),
+      {
+        color: LEVEL_3_MAIN,
+        endPlug: "arrow",
+        path: "straight",
+        startSocket: "bottom",
+        endSocket: "top",
+      }
+    )
+  );
+
+  // Only add this line on wider screens
+  let lineMain;
+  if (window.innerWidth > 600) {
+    level3Lines.push(
+      new LeaderLine(
+        document.getElementById("level-3-box-1"),
+        document.getElementById("level-3-box-2"),
+        {
+          color: "#f48f1e",
+          endPlug: "arrow",
+          path: "straight",
+          startSocket: "right",
+          endSocket: "left",
+          startPlug: "arrow1",
+        }
+      )
+    );
+  } else {
+    level3Lines.push(
+      new LeaderLine(
+        document.getElementById("level-3-box-1"),
+        document.getElementById("level-3-box-2"),
+        {
+          color: "#f48f1e",
+          endPlug: "arrow",
+          path: "grid",
+          startSocket: "bottom",
+          endSocket: "bottom",
+          startPlug: "arrow1",
+        }
+      )
+    );
+  }
+};
+
+let scrollPosition = 0;
+
+// Select modal elements
+const modal = document.getElementById("modal");
+const modalText = document.getElementById("modal-text");
+const closeModal = document.getElementById("modal-close");
+
+// Unified close function
+function openModal(contentKey) {
+  modalText.innerHTML = modalContents[contentKey] || "<p>Turinys nerastas.</p>";
+  modal.classList.remove("hidden");
+
+  // Lock scroll
+  scrollPosition = window.scrollY;
+  document.body.style.top = `-${scrollPosition}px`;
+  document.body.classList.add("modal-open");
+  document.body.style.position = "fixed";
+  document.body.style.width = "100%";
+}
+
+function closeModalFunc() {
+  modal.classList.add("hidden");
+
+  // Unlock scroll and restore position
+  document.body.classList.remove("modal-open");
+  document.body.style.position = "";
+  document.body.style.top = "";
+  document.body.style.width = "";
+  window.scrollTo(0, scrollPosition);
+}
+// Close modal on click
+closeModal.addEventListener("click", closeModalFunc);
+modal
+  .querySelector(".modal-backdrop")
+  .addEventListener("click", closeModalFunc);
+
+// Modal open: level-2 boxes
+document.querySelectorAll(".level-2 .box").forEach((box) => {
+  box.addEventListener("click", () => {
+    const key = box.getAttribute("data-id");
+    openModal(key);
+  });
+});
+
+// Modal open: modal-trigger elements
+document.querySelectorAll(".modal-trigger").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const key = btn.getAttribute("data-modal");
+    openModal(key);
+  });
+});
+
+// Accordion
+// TODO: Rework sthis so that lines are activated only on corresponding accordindion click
+// And also would be removed when closed
+let openLevels = {
+  level1: false,
+  level3: false,
+  level35: false,
+};
+const rerenderLevel3 = () => {
+  if (openLevels.level3 && openLevels.level35) {
+    deactivateLevel3();
+    setTimeout(() => {
+      activateLevel3();
+    }, 500);
+  }
+};
+
+let acc = document.getElementsByClassName("accordion");
+for (let i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function () {
+    this.classList.toggle("active");
+    const panel = this.nextElementSibling;
+    const isOpen = panel.classList.contains("open");
+    panel.classList.toggle("open");
+
+    if (i === 0) {
+      // Level 1
+      if (isOpen) {
+        deactivateLevel1();
+        openLevels.level1 = false;
+      } else {
+        activateLevel1();
+        openLevels.level1 = true;
+      }
+      rerenderLevel3();
+    }
+
+    if (i === 1) {
+      // INTERFERING PANEL
+      // Just trigger re-render if level 3 is already open
+      setTimeout(() => {
+        rerenderLevel3();
+      }, 500); // delay to account for animation or layout shift
+    }
+
+    if (i === 2) {
+      // Level 3
+      if (isOpen) {
+        deactivateLevel3();
+        openLevels.level3 = false;
+        openLevels.level35 = false;
+        const boxDisplay = document.getElementById("box-to-display");
+        boxDisplay.classList.remove("visible");
+      } else {
+        // activateLevel3();
+        openLevels.level3 = true;
+      }
+    }
+  });
+}
+
+document.getElementById("level-3-main-box").addEventListener("click", () => {
+  const boxDisplay = document.getElementById("box-to-display");
+  if (openLevels.level3 && openLevels.level35) {
+    console.log("?????1")
+    deactivateLevel3();
+    boxDisplay.classList.remove("visible");
+    openLevels.level35 = false;
+  } else {
+    console.log("?????2")
+    activateLevel3();
+    boxDisplay.classList.add("visible");
+    openLevels.level35 = true;
+  }
+});
   </script>
 </html>
